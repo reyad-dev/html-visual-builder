@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Discovery"
+  short_description: "Capture goals, scope and requirements in the graph"
+  default_prompt: "Use $ontolink-discovery to capture project scope and acceptance criteria in the OntoLink knowledge graph."

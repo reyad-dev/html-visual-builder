@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Skills"
+  short_description: "Route project work through an OWL knowledge mediator"
+  default_prompt: "Create or reuse knowledge.owl at this project root automatically, then coordinate this project with $ontolink-skills using compact ontology context, evidence and sequential phase skills."

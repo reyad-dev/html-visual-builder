@@ -1,0 +1,26 @@
+Project: HTML Visual Builder
+Phase: build
+Task: task-epic-1-editor-core
+Target Artifact: src/editor/EditorAdapter.ts
+Target Hash: a32b27c6a75ebed863e449f8ffce55a183470bde6ded4d27d7db82f761060d3e
+Review Status: PASS
+Findings:
+1. Epic 1 Visual Editor Core Tasks Completed:
+   - T-0101: Created strongly typed EditorAdapter implementing IEditorAdapter in src/editor/EditorAdapter.ts.
+   - T-0102: Initialized and destroyed GrapesJS safely with single instance per mount, custom shell, no storageManager, and strict cleanup.
+   - T-0103: Configured default blank starter document and protected root wrapper from accidental deletion or duplication.
+   - T-0104: Configured viewport devices (Desktop 1440px, Tablet 768px, Mobile 375px) in src/editor/devices.ts.
+   - T-0105: Implemented Structure blocks (Section, Container, 2 Columns) in src/editor/blocks.ts.
+   - T-0106: Implemented Content & Basic blocks (Heading, Text, Button, Image, Spacer, Divider) in src/editor/blocks.ts.
+   - T-0107: Integrated Blocks panel mount point (#blocks-panel-mount) into the left sidebar with dark theme styling.
+   - T-0108: Integrated Layers panel mount point (#layers-panel-mount) into the left sidebar with tab switching.
+   - T-0109: Built selection bridge to UI with breadcrumbs and selected component state in src/state/uiStore.ts.
+   - T-0110: Added duplicate and delete commands with safe no-op on null selection and wrapper protection.
+   - T-0111: Implemented Undo/Redo toolbar in Workspace.tsx bound to GrapesJS UndoManager with reactive disabled states.
+   - T-0112: Implemented keyboard focus guards in src/editor/keyboardGuards.ts preventing hotkey collisions during text editing.
+2. Engineering Acceptance Criteria Gates Passed:
+   - AC-ENG-001 P0: npm run typecheck exited with code 0.
+   - AC-ENG-002 P0: npm run lint exited with code 0.
+   - AC-ENG-003 P0: npm run test passed (25/25 unit & integration tests across 5 test suites).
+   - AC-ENG-004 P0: npm run build generated clean production bundle in dist/.
+Verified Date: 2026-10-15

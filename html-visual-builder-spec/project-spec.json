@@ -1,0 +1,18 @@
+{
+  "project": "HTML Visual Builder",
+  "schemaVersion": 1,
+  "mvp": "Static HTML/CSS visual editor",
+  "editorEngine": "GrapesJS Core",
+  "canonicalPersistence": "GrapesJS Project Data JSON",
+  "backendInMvp": false,
+  "executeImportedJavascript": false,
+  "autoFetchExternalStylesheets": false,
+  "primaryDocs": [
+    "AGENTS.md",
+    "docs/12_ACCEPTANCE_CRITERIA.md",
+    "docs/01_PRODUCT_SPEC.md",
+    "docs/04_ARCHITECTURE.md",
+    "docs/09_SECURITY.md",
+    "TASKS.md"
+  ]
+}

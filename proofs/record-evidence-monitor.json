@@ -1,0 +1,9 @@
+{
+  "id": "evidence-runtime-monitoring",
+  "type": "Evidence",
+  "supports": "artifact-runtime-monitoring",
+  "outcome": "PASS",
+  "targetHash": "23491043f2bfd9d35287ab7a3de79ea844b485b6ac49bc43da1b31ccdd3ed7a9",
+  "proofPath": "proofs/monitor-review.txt",
+  "proofHash": "a2067486382005e51b6ed18ac278dc6f65492cbc9b6d7b424ad73a2aaa1360e8"
+}

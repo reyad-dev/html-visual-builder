@@ -1,0 +1,15 @@
+{
+  "id": "task-epic-4-persistence",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "build",
+  "title": "Epic 4: Browser Project Persistence (T-0401 to T-0408)",
+  "owner": "ontolink-implementation",
+  "weight": "1.0",
+  "requiredKind": ["implementation"],
+  "dependsOn": ["task-epic-1-editor-core"],
+  "usesArtifact": [
+    "doc-07-data-model",
+    "artifact-epic-4-persistence"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "provider-access",
+  "type": "Blocker",
+  "affects": [
+    "task-build"
+  ],
+  "summary": "Illustrative unavailable provider access; not an actual account claim",
+  "status": "OPEN"
+}

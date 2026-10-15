@@ -1,0 +1,9 @@
+{
+  "id": "evidence-plan-review",
+  "type": "Evidence",
+  "supports": "artifact-tasks-backlog",
+  "outcome": "PASS",
+  "targetHash": "71b20d237813ddb8450ba37934e7c76979fac37bb93ba1b6af7d3ca18fdae135",
+  "proofPath": "proofs/plan-review.txt",
+  "proofHash": "be9ad8a459b5c82fd1a69af690daa2bdfbf04dd123e8cfef06eec39b626f7d17"
+}

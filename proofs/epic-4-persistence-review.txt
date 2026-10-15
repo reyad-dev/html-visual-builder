@@ -1,0 +1,27 @@
+Project: HTML Visual Builder
+Phase: build
+Task: task-epic-4-persistence
+Target Artifact: src/data/projects/BrowserProjectRepository.ts
+Target Hash: 5dc7ceb78f7455651236e01dd82af7882f221afe5fdb6cc74827107255559b60
+Review Status: PASS
+Findings:
+1. Epic 4 Browser Project Persistence Tasks Completed:
+   - T-0401: Defined SavedProject schema, ProjectSourceMeta, ProjectSummary, and default factory in src/data/projects/schema.ts.
+   - T-0402: Implemented schema validation and migration entry point (migrateSavedProject) in src/data/projects/migrations.ts.
+   - T-0403: Defined ProjectRepository interface contract in src/data/projects/ProjectRepository.ts.
+   - T-0404: Implemented BrowserProjectRepository with IndexedDB engine, resilient localStorage fallback, and StorageQuotaError detection in src/data/projects/BrowserProjectRepository.ts.
+   - T-0405: Integrated project persistence actions with EditorAdapter and uiStore in src/features/workspace/Workspace.tsx and src/state/uiStore.ts.
+   - T-0406: Built accessible ProjectListModal component with list, open, create, and delete flows in src/features/projects/ProjectListModal.tsx & projects.css.
+   - T-0407: Implemented dirty status indicator dot, saving animation, saved confirmation, and storage error alerts with dismiss controls.
+   - T-0408: Built comprehensive test suites verifying schema, migrations, repository CRUD, modal dialogs, and acceptance criteria in src/data/projects/persistenceIntegration.test.ts (101/101 tests passing).
+2. Acceptance Criteria Gates Passed:
+   - AC-SAVE-001 P0: Project saves canonical GrapesJS project data.
+   - AC-SAVE-002 P0: Saved project reload preserves structure.
+   - AC-SAVE-003 P0: Saved project reload preserves styles.
+   - AC-SAVE-004 P0: Project name and timestamps persist.
+   - AC-SAVE-005 P0: Storage error is shown and does not pretend success.
+   - AC-ENG-001 P0: npm run typecheck passed with 0 errors.
+   - AC-ENG-002 P0: npm run lint passed with 0 errors.
+   - AC-ENG-003 P0: npm test passed (101/101 tests across 15 test suites).
+   - AC-ENG-004 P0: npm run build completed with clean production bundle.
+Verified Date: 2026-10-15

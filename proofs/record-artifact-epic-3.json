@@ -1,0 +1,9 @@
+{
+  "id": "artifact-epic-3-import",
+  "type": "Artifact",
+  "title": "Secure HTML/CSS Import Pipeline Implementation",
+  "kind": "implementation",
+  "path": "src/domain/document/importDocument.ts",
+  "contentHash": "74316a0e53788197f07ff8370a2559b56e57d0ab6bfc0e6d73ff6ff19323238b",
+  "status": "CURRENT"
+}

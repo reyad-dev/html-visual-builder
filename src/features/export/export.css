@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Export Modal Styles (Epic 5)
+   ========================================================================== */
+
+.export-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 12, 16, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.export-modal {
+  background: var(--bg-secondary, #12161f);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 12px);
+  width: 100%;
+  max-width: 780px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  animation: exportModalEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes exportModalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.export-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+}
+
+.export-modal-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary, #f8fafc);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.export-modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary, #94a3b8);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm, 6px);
+  transition: all var(--transition-fast, 150ms);
+}
+
+.export-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary, #f8fafc);
+}
+
+.export-modal-body {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.export-config-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.export-config-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.export-config-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary, #94a3b8);
+}
+
+.export-config-input {
+  background: var(--bg-surface, #181d28);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  color: var(--text-primary, #f8fafc);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.875rem;
+  transition: border-color var(--transition-fast, 150ms);
+}
+
+.export-config-input:focus {
+  outline: none;
+  border-color: var(--border-focus, #3b82f6);
+}
+
+/* Tabs */
+.export-tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+}
+
+.export-tab-btn {
+  padding: 0.625rem 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary, #94a3b8);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms);
+}
+
+.export-tab-btn:hover {
+  color: var(--text-primary, #f8fafc);
+}
+
+.export-tab-btn.active {
+  color: var(--text-accent, #60a5fa);
+  border-bottom-color: var(--accent-primary, #3b82f6);
+}
+
+/* Code Preview Container */
+.export-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.export-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted, #64748b);
+}
+
+.export-code-box {
+  background: var(--bg-primary, #0a0c10);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-md, 8px);
+  padding: 1rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  color: #e2e8f0;
+  max-height: 240px;
+  overflow: auto;
+  white-space: pre;
+  tab-size: 2;
+  line-height: 1.5;
+}
+
+/* Remote Asset Warning */
+.export-warning-banner {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md, 8px);
+  padding: 0.875rem 1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.export-warning-icon {
+  color: var(--status-warning, #f59e0b);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.export-warning-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.8125rem;
+  color: #fde68a;
+}
+
+.export-warning-content strong {
+  color: #fbbf24;
+  font-size: 0.875rem;
+}
+
+.export-warning-urls {
+  margin-top: 0.375rem;
+  padding-left: 1.25rem;
+  max-height: 80px;
+  overflow-y: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: #fef3c7;
+}
+
+/* Modal Footer */
+.export-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--bg-surface, #181d28);
+  border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.export-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms);
+  border: 1px solid transparent;
+}
+
+.export-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+  color: var(--text-primary, #f8fafc);
+}
+
+.export-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.export-btn-primary {
+  background: var(--accent-primary, #3b82f6);
+  color: #ffffff;
+}
+
+.export-btn-primary:hover {
+  background: var(--accent-primary-hover, #2563eb);
+}
+
+.export-toast-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--status-success, #10b981);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  animation: feedbackFadeIn 0.2s ease-out;
+}
+
+@keyframes feedbackFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

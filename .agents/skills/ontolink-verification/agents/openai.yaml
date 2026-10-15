@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Verification"
+  short_description: "Verify behavior and preserve traceable test evidence"
+  default_prompt: "Use $ontolink-verification to verify project outcomes and attach current evidence to artifacts."

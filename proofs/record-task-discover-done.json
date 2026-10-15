@@ -1,0 +1,18 @@
+{
+  "id": "task-discover",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "discover",
+  "title": "Discover project requirements and specifications",
+  "owner": "ontolink-discovery",
+  "weight": "1.0",
+  "requiredKind": ["requirements"],
+  "usesArtifact": [
+    "artifact-project-spec-json",
+    "artifact-spec-readme",
+    "doc-01-product-spec",
+    "doc-02-scope",
+    "doc-07-data-model",
+    "doc-08-ui-ux"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "task-monitor",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "monitor",
+  "title": "Monitor runtime security compliance and zero console error health",
+  "owner": "ontolink-monitoring",
+  "weight": "1.0",
+  "requiredKind": ["monitoring"],
+  "dependsOn": [
+    "task-deliver"
+  ],
+  "usesArtifact": [
+    "artifact-runtime-monitoring"
+  ]
+}

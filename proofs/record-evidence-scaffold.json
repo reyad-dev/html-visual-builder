@@ -1,0 +1,9 @@
+{
+  "id": "evidence-epic-0-scaffold",
+  "type": "Evidence",
+  "supports": "artifact-epic-0-scaffold",
+  "outcome": "PASS",
+  "targetHash": "03cd088f275bd58e649271e1e8c47ae8fcc4109ea183323c77564e803b90b8fb",
+  "proofPath": "proofs/epic-0-scaffold-review.txt",
+  "proofHash": "51f6db5005820ae347cd00086749c8c53a9552309be74519f54503219a543133"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "evidence-design-review",
+  "type": "Evidence",
+  "supports": "doc-04-architecture",
+  "outcome": "PASS",
+  "targetHash": "9e260b5584d85de912f8fff144ed079494171835278f56bb06fd9dee7860cb0b",
+  "proofPath": "proofs/design-review.txt",
+  "proofHash": "e70fd79b1a426a370d0c11d58a927778d76bf3202e113cc118b5ce60ee2b2dcc"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "review-scope",
+  "type": "Recommendation",
+  "affects": [
+    "task-discover"
+  ],
+  "summary": "Review scope and acceptance criteria before architecture",
+  "basis": "The discovery phase is the next eligible workflow obligation",
+  "status": "PROPOSED"
+}

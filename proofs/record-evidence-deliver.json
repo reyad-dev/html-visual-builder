@@ -1,0 +1,9 @@
+{
+  "id": "evidence-release-handoff",
+  "type": "Evidence",
+  "supports": "artifact-release-handoff",
+  "outcome": "PASS",
+  "targetHash": "950948d5aa8c3077decbf4928c9bc5e031132b392fcd68b55e97f4bfc84249f9",
+  "proofPath": "proofs/deliver-handoff-review.txt",
+  "proofHash": "5afd87b7e494923dac9ebd48005c779d69a51d81f8e05d21ab92a05bc8c1d807"
+}

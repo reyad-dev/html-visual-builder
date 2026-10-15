@@ -1,0 +1,16 @@
+{
+  "id": "task-plan",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "plan",
+  "title": "Plan implementation backlog and epic dependency graph",
+  "owner": "ontolink-planning",
+  "weight": "1.0",
+  "requiredKind": ["plan"],
+  "dependsOn": ["task-design"],
+  "usesArtifact": [
+    "artifact-tasks-backlog",
+    "doc-11-implementation-plan",
+    "doc-15-future-roadmap"
+  ]
+}

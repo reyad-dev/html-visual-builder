@@ -1,0 +1,9 @@
+{
+  "id": "evidence-epic-4-persistence",
+  "type": "Evidence",
+  "supports": "artifact-epic-4-persistence",
+  "outcome": "PASS",
+  "targetHash": "5dc7ceb78f7455651236e01dd82af7882f221afe5fdb6cc74827107255559b60",
+  "proofPath": "proofs/epic-4-persistence-review.txt",
+  "proofHash": "c8c02f3e6a0bf7a841fdfe130e14cdf3f36e5ea88063f24ddf0e71b5d0a0cbf2"
+}

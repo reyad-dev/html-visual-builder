@@ -1,0 +1,10 @@
+{
+  "id": "provider-risk-estimate",
+  "type": "LikelihoodAssessment",
+  "assesses": "task-build",
+  "method": "not estimated",
+  "rationale": "No frequency or calibration data is available",
+  "eventScope": "Provider request failure",
+  "timeHorizon": "Next verification run",
+  "calibrated": false
+}

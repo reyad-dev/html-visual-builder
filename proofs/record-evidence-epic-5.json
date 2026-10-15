@@ -1,0 +1,9 @@
+{
+  "id": "evidence-epic-5-export",
+  "type": "Evidence",
+  "supports": "artifact-epic-5-export",
+  "outcome": "PASS",
+  "targetHash": "d3fbdbde53b7df82dd7033e087b1ce8808727cff40fc5d2a7e1a8899f9028843",
+  "proofPath": "proofs/epic-5-export-review.txt",
+  "proofHash": "f0250d8d585e0bde7fe8e6f5b1085ccd34088cb7da77294d1ff6e57ebf298d22"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "artifact-release-handoff",
+  "type": "Artifact",
+  "title": "Release Handoff and Deployment Documentation",
+  "kind": "handoff",
+  "path": "HANDOFF.md",
+  "contentHash": "950948d5aa8c3077decbf4928c9bc5e031132b392fcd68b55e97f4bfc84249f9",
+  "status": "CURRENT"
+}

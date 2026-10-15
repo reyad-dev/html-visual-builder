@@ -1,0 +1,15 @@
+{
+  "standards": [
+    {
+      "title": "OWL 2 Document Overview (Second Edition)",
+      "url": "https://www.w3.org/TR/owl2-overview/",
+      "role": "Vocabulary and OWL semantics; does not imply this constrained reader is a full OWL reasoner"
+    },
+    {
+      "title": "Shapes Constraint Language (SHACL)",
+      "url": "https://www.w3.org/TR/shacl/",
+      "role": "Structural graph constraints; workflow guards and file provenance are also checked by mediator.py"
+    }
+  ],
+  "implementation": "Locally authored OntoLink workflow and mediator; no empirical token-saving claim."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "task-deliver",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "deliver",
+  "title": "Deliver standalone release bundle and handoff documentation",
+  "owner": "ontolink-delivery",
+  "weight": "1.0",
+  "requiredKind": ["handoff"],
+  "dependsOn": [
+    "task-verify"
+  ],
+  "usesArtifact": [
+    "artifact-release-handoff"
+  ]
+}

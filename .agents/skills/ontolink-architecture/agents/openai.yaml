@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Architecture"
+  short_description: "Connect architecture, contracts and project decisions"
+  default_prompt: "Use $ontolink-architecture to define evidence-backed architecture and contracts in the project graph."

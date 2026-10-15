@@ -1,0 +1,30 @@
+Project: HTML Visual Builder
+Phase: build
+Task: task-epic-5-export
+Target Artifact: src/domain/document/exportDocument.ts
+Target Hash: d3fbdbde53b7df82dd7033e087b1ce8808727cff40fc5d2a7e1a8899f9028843
+Review Status: PASS
+Findings:
+1. Epic 5 Standalone HTML/CSS Export Tasks Completed:
+   - T-0501: Implemented exportStandaloneHtml in src/domain/document/exportDocument.ts generating HTML5 doctype, head, metadata, style block, and sanitized body content.
+   - T-0502: Built comprehensive unit tests in src/domain/document/exportDocument.test.ts verifying safe escaping, XSS prevention, script removal, and CSS isolation.
+   - T-0503: Built accessible ExportModal component in src/features/export/ExportModal.tsx & export.css with tabs for Full HTML, Body HTML, and CSS.
+   - T-0504: Implemented client-side .html download flow with downloadHtmlFile.
+   - T-0505: Implemented Copy body HTML action with copyToClipboard and feedback toast.
+   - T-0506: Implemented Copy CSS action with copyToClipboard and feedback toast.
+   - T-0507: Implemented detectRemoteAssets and rendered warning banner for external remote resources.
+2. Acceptance Criteria Gates Passed:
+   - AC-EXPORT-001 P0: Standalone HTML download is generated.
+   - AC-EXPORT-002 P0: Export contains current body HTML.
+   - AC-EXPORT-003 P0: Export contains current CSS.
+   - AC-EXPORT-004 P0: Export contains doctype, head, body.
+   - AC-EXPORT-005 P0: Removed scripts are not reintroduced.
+   - AC-EXPORT-006 P0: Unsafe JavaScript URL is not emitted.
+   - AC-EXPORT-007 P0: User can copy body HTML.
+   - AC-EXPORT-008 P0: User can copy CSS.
+   - AC-A11Y-004 P0: Modal dialog closes on Escape key and backdrop click with accessible labeling.
+   - AC-ENG-001 P0: npm run typecheck passed with 0 errors.
+   - AC-ENG-002 P0: npm run lint passed with 0 errors.
+   - AC-ENG-003 P0: npm test passed (126/126 tests across 17 test suites).
+   - AC-ENG-004 P0: npm run build generated clean production bundle.
+Verified Date: 2026-10-15

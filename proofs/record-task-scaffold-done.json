@@ -1,0 +1,17 @@
+{
+  "id": "task-epic-0-scaffold",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "build",
+  "title": "Epic 0: Project Scaffold and Tooling (T-0001 to T-0007)",
+  "owner": "ontolink-implementation",
+  "weight": "1.0",
+  "requiredKind": ["implementation"],
+  "dependsOn": ["task-plan"],
+  "usesArtifact": [
+    "artifact-tasks-backlog",
+    "doc-03-tech-stack",
+    "doc-13-file-tree",
+    "artifact-epic-0-scaffold"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "artifact-epic-2-inspector",
+  "type": "Artifact",
+  "title": "Style Inspector & Property Manager Implementation",
+  "kind": "implementation",
+  "path": "src/features/inspector/InspectorPanel.tsx",
+  "contentHash": "9e488e17bc9af6822a47821960810f2cebddc450675fcc7808442831b8054640",
+  "status": "CURRENT"
+}

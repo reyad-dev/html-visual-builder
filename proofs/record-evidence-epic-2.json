@@ -1,0 +1,9 @@
+{
+  "id": "evidence-epic-2-inspector",
+  "type": "Evidence",
+  "supports": "artifact-epic-2-inspector",
+  "outcome": "PASS",
+  "targetHash": "9e488e17bc9af6822a47821960810f2cebddc450675fcc7808442831b8054640",
+  "proofPath": "proofs/epic-2-inspector-review.txt",
+  "proofHash": "125a2a9cb720423332fd671b4d48fc5276d7ffbed4aecc2888e700e463f06a21"
+}

@@ -1,0 +1,9 @@
+{
+  "id": "evidence-epic-6-verify-e2e",
+  "type": "Evidence",
+  "supports": "artifact-epic-6-verify-e2e",
+  "outcome": "PASS",
+  "targetHash": "21c2566b79e7dd6ae6c2407093321417760e4fd93ef683a289bf92d91eca2311",
+  "proofPath": "proofs/epic-6-verify-review.txt",
+  "proofHash": "aa31bf82241c206ad4c908ffd13488ec25e41e7042f9fb5f73a01d8cb87058c1"
+}

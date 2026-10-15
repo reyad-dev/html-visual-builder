@@ -1,0 +1,16 @@
+{
+  "id": "task-epic-6-verify-e2e",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "verify",
+  "title": "Epic 6: Comprehensive Verification & Acceptance (T-0601 to T-0610)",
+  "owner": "ontolink-verification",
+  "weight": "2.0",
+  "requiredKind": ["verification"],
+  "dependsOn": ["task-build"],
+  "usesArtifact": [
+    "doc-10-testing",
+    "doc-12-acceptance-criteria",
+    "artifact-epic-6-verify-e2e"
+  ]
+}

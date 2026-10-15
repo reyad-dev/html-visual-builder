@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Monitoring"
+  short_description: "Track progress, blockers and change impact on resume"
+  default_prompt: "Use $ontolink-monitoring to inspect current progress, blockers and stale evidence during an active project run."

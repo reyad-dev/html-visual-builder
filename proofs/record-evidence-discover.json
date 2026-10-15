@@ -1,0 +1,9 @@
+{
+  "id": "evidence-discover-review",
+  "type": "Evidence",
+  "supports": "artifact-project-spec-json",
+  "outcome": "PASS",
+  "targetHash": "9f1dfb0e9ce9de3f0213c7c6f4d7dac297f65c4e76fbca796f6403aff7e3edda",
+  "proofPath": "proofs/discovery-review.txt",
+  "proofHash": "75c784f8d66e3f017081c80c7a221714be991c0a35e8806f46314a36f5ff6568"
+}

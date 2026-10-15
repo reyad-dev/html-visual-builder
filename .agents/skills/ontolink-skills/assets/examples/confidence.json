@@ -1,0 +1,8 @@
+{
+  "id": "contract-confidence",
+  "type": "ConfidenceAssessment",
+  "assesses": "task-design",
+  "method": "pending review",
+  "rationale": "No contract review evidence is available in this example",
+  "calibrated": false
+}

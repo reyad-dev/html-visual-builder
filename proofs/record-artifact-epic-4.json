@@ -1,0 +1,9 @@
+{
+  "id": "artifact-epic-4-persistence",
+  "type": "Artifact",
+  "title": "Browser Project Persistence Implementation",
+  "kind": "implementation",
+  "path": "src/data/projects/BrowserProjectRepository.ts",
+  "contentHash": "5dc7ceb78f7455651236e01dd82af7882f221afe5fdb6cc74827107255559b60",
+  "status": "CURRENT"
+}

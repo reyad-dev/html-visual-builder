@@ -1,0 +1,15 @@
+{
+  "id": "task-epic-5-export",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "build",
+  "title": "Epic 5: Standalone HTML/CSS Export (T-0501 to T-0507)",
+  "owner": "ontolink-implementation",
+  "weight": "1.0",
+  "requiredKind": ["implementation"],
+  "dependsOn": ["task-epic-1-editor-core"],
+  "usesArtifact": [
+    "doc-06-import-export",
+    "artifact-epic-5-export"
+  ]
+}

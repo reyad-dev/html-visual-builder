@@ -1,0 +1,16 @@
+{
+  "id": "task-epic-3-import",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "build",
+  "title": "Epic 3: Secure HTML/CSS Import Pipeline (T-0301 to T-0315)",
+  "owner": "ontolink-implementation",
+  "weight": "2.0",
+  "requiredKind": ["implementation"],
+  "dependsOn": ["task-epic-1-editor-core"],
+  "usesArtifact": [
+    "doc-06-import-export",
+    "doc-09-security",
+    "artifact-epic-3-import"
+  ]
+}

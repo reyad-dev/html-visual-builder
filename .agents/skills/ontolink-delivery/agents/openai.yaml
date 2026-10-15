@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Delivery"
+  short_description: "Deliver verified outputs within the authorized scope"
+  default_prompt: "Use $ontolink-delivery to prepare and complete authorized delivery with current verification evidence."

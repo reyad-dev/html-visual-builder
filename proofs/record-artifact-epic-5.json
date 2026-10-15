@@ -1,0 +1,9 @@
+{
+  "id": "artifact-epic-5-export",
+  "type": "Artifact",
+  "title": "Standalone HTML/CSS Export Implementation",
+  "kind": "implementation",
+  "path": "src/domain/document/exportDocument.ts",
+  "contentHash": "d3fbdbde53b7df82dd7033e087b1ce8808727cff40fc5d2a7e1a8899f9028843",
+  "status": "CURRENT"
+}

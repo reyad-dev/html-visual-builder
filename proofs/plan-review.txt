@@ -1,0 +1,19 @@
+Project: HTML Visual Builder
+Phase: plan
+Task: task-plan
+Target Artifact: html-visual-builder-spec/TASKS.md
+Target Hash: 71b20d237813ddb8450ba37934e7c76979fac37bb93ba1b6af7d3ca18fdae135
+Review Status: PASS
+Findings:
+1. Detailed Implementation Backlog & Epic Sequence:
+   - Epic 0 (Scaffold): T-0001 to T-0007 (Vite + React 19 + TypeScript strict, dependencies, Vitest, linting, error boundary).
+   - Epic 1 (Visual Editor Core): T-0101 to T-0112 (EditorAdapter, GrapesJS core lifecycle, blank project, viewport devices, blocks, layers, history).
+   - Epic 2 (Inspector): T-0201 to T-0210 (Style sectors, typography, layout, spacing, colors, borders, attributes panel, URL validation).
+   - Epic 3 (Secure Import): T-0301 to T-0315 (HTML string parsing, CSS extraction, DOMPurify configuration, script removal, URL policy, dirty guard).
+   - Epic 4 (Persistence): T-0401 to T-0408 (SavedProject schema v1, BrowserProjectRepository, IndexedDB storage, project list/open, status indicators).
+   - Epic 5 (Export): T-0501 to T-0507 (Standalone HTML export, copy HTML/CSS, download bundle, remote asset warnings).
+   - Epic 6 (Verification / Testing): T-0601 to T-0610 (Unit test coverage, malicious fixtures testing, E2E acceptance tests).
+2. Acceptance Criteria & Dependency Mapping:
+   - Backlog directly implements the requirements and architecture defined in phases 1 & 2.
+   - Tasks and Epics are explicitly ordered with clear exit criteria.
+Verified Date: 2026-10-15

@@ -1,0 +1,9 @@
+{
+  "id": "evidence-epic-1-editor-core",
+  "type": "Evidence",
+  "supports": "artifact-epic-1-editor-core",
+  "outcome": "PASS",
+  "targetHash": "a32b27c6a75ebed863e449f8ffce55a183470bde6ded4d27d7db82f761060d3e",
+  "proofPath": "proofs/epic-1-editor-core-review.txt",
+  "proofHash": "c79aa48d98529af7d510a6fef7940ecc7298f43e915e46a6d544daf232075bf2"
+}

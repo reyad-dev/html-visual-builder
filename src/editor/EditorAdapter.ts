@@ -1,0 +1,352 @@
+import grapesjs, { type Editor } from 'grapesjs';
+import {
+  type EditorAdapterOptions,
+  type EditorDevice,
+  type EditorEventType,
+  type ExportSnapshot,
+  type IEditorAdapter,
+  type SelectedComponentInfo,
+} from './types';
+import { VIEWPORT_DEVICES } from './devices';
+import { DEFAULT_BLOCKS } from './blocks';
+import { DEFAULT_BLANK_HTML, DEFAULT_CANVAS_CSS } from './editorConfig';
+
+export class EditorAdapter implements IEditorAdapter {
+  private editor: Editor | null = null;
+  private isInit = false;
+  private currentDevice: EditorDevice = 'desktop';
+  private eventListeners: Map<EditorEventType, Set<() => void>> = new Map([
+    ['selection:change', new Set()],
+    ['history:change', new Set()],
+    ['update', new Set()],
+  ]);
+
+  get isInitialized(): boolean {
+    return this.isInit && this.editor !== null;
+  }
+
+  async init(options: EditorAdapterOptions): Promise<void> {
+    if (this.isInit && this.editor) {
+      return;
+    }
+
+    const isJsdom =
+      typeof window !== 'undefined' &&
+      (window.navigator.userAgent.includes('jsdom') || process.env.NODE_ENV === 'test');
+
+    const config: Record<string, unknown> = {
+      container: options.container,
+      fromElement: false,
+      height: '100%',
+      width: 'auto',
+      panels: { defaults: [] },
+      storageManager: false,
+      deviceManager: {
+        devices: VIEWPORT_DEVICES,
+      },
+      blockManager: options.blocksContainer
+        ? {
+            appendTo: options.blocksContainer,
+            blocks: DEFAULT_BLOCKS,
+          }
+        : {
+            blocks: DEFAULT_BLOCKS,
+          },
+      canvas: {
+        styles: [
+          'https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap',
+        ],
+      },
+      headless: options.headless ?? isJsdom,
+    };
+
+    if (options.layersContainer) {
+      config.layerManager = {
+        appendTo: options.layersContainer,
+      };
+    }
+
+    this.editor = grapesjs.init(config);
+    this.isInit = true;
+
+    // Apply canvas styling reset
+    this.editor.addComponents(`<style>${DEFAULT_CANVAS_CSS}</style>`);
+
+    // Lock and protect the root wrapper element from deletion/moving
+    const wrapper = this.editor.getWrapper();
+    if (wrapper) {
+      wrapper.set({
+        removable: false,
+        copyable: false,
+        draggable: false,
+        badgable: false,
+      });
+    }
+
+    // Populate initial starter document if canvas has no components
+    const existingComponents = this.editor.getComponents();
+    if (existingComponents.length === 0) {
+      this.editor.addComponents(DEFAULT_BLANK_HTML);
+    }
+
+    // Synchronize initial device
+    this.setDevice(this.currentDevice);
+
+    // Register GrapesJS core events
+    this.editor.on('component:selected component:deselected', () => {
+      this.emit('selection:change');
+    });
+
+    this.editor.on('undo redo', () => {
+      this.emit('history:change');
+    });
+
+    this.editor.on('component:add component:remove component:update style:update', () => {
+      this.emit('update');
+      this.emit('history:change');
+    });
+
+    // Notify listeners of initial state
+    this.emit('history:change');
+    this.emit('selection:change');
+  }
+
+  destroy(): void {
+    if (!this.editor) {
+      return;
+    }
+
+    for (const listeners of this.eventListeners.values()) {
+      listeners.clear();
+    }
+
+    try {
+      this.editor.destroy();
+    } catch {
+      // Ignore teardown errors if already cleaned
+    }
+
+    this.editor = null;
+    this.isInit = false;
+  }
+
+  setDevice(device: EditorDevice): void {
+    this.currentDevice = device;
+    if (this.editor) {
+      try {
+        this.editor.setDevice(device);
+      } catch {
+        // Fallback if device isn't yet registered
+      }
+    }
+  }
+
+  getDevice(): EditorDevice {
+    return this.currentDevice;
+  }
+
+  getHtml(): string {
+    return this.editor?.getHtml() || '';
+  }
+
+  getCss(): string {
+    return this.editor?.getCss() || '';
+  }
+
+  getExportSnapshot(): ExportSnapshot {
+    return {
+      bodyHtml: this.getHtml(),
+      css: this.getCss(),
+    };
+  }
+
+  getProjectData(): unknown {
+    return this.editor?.getProjectData() ?? null;
+  }
+
+  loadProjectData(data: unknown): void {
+    if (this.editor && data && typeof data === 'object') {
+      this.editor.loadProjectData(data as Record<string, unknown>);
+      this.emit('update');
+      this.emit('history:change');
+    }
+  }
+
+  resetToBlank(): void {
+    if (!this.editor) {
+      return;
+    }
+    this.editor.setComponents(`<style>${DEFAULT_CANVAS_CSS}</style>${DEFAULT_BLANK_HTML}`);
+    this.editor.select(undefined);
+    this.emit('update');
+    this.emit('history:change');
+  }
+
+  loadTemplate(html: string, css?: string): void {
+    if (!this.editor) {
+      return;
+    }
+    const fullHtml = css
+      ? `<style>${DEFAULT_CANVAS_CSS}\n${css}</style>${html}`
+      : `<style>${DEFAULT_CANVAS_CSS}</style>${html}`;
+    this.editor.setComponents(fullHtml);
+    this.editor.select(undefined);
+    this.emit('update');
+    this.emit('history:change');
+  }
+
+  undo(): void {
+    if (this.editor?.UndoManager) {
+      this.editor.UndoManager.undo();
+      this.emit('history:change');
+      this.emit('update');
+    }
+  }
+
+  redo(): void {
+    if (this.editor?.UndoManager) {
+      this.editor.UndoManager.redo();
+      this.emit('history:change');
+      this.emit('update');
+    }
+  }
+
+  canUndo(): boolean {
+    if (!this.editor?.UndoManager) {
+      return false;
+    }
+    return Boolean(this.editor.UndoManager.hasUndo());
+  }
+
+  canRedo(): boolean {
+    if (!this.editor?.UndoManager) {
+      return false;
+    }
+    return Boolean(this.editor.UndoManager.hasRedo());
+  }
+
+  duplicateSelected(): boolean {
+    if (!this.editor) {
+      return false;
+    }
+    const selected = this.editor.getSelected();
+    if (!selected) {
+      return false;
+    }
+
+    const wrapper = this.editor.getWrapper();
+    if (selected === wrapper || selected.get('copyable') === false) {
+      return false;
+    }
+
+    const parent = selected.parent();
+    if (!parent) {
+      return false;
+    }
+
+    const index = selected.index();
+    const clone = selected.clone();
+    parent.append(clone, { at: index + 1 });
+    this.editor.select(clone);
+
+    this.emit('update');
+    this.emit('history:change');
+    return true;
+  }
+
+  deleteSelected(): boolean {
+    if (!this.editor) {
+      return false;
+    }
+    const selected = this.editor.getSelected();
+    if (!selected) {
+      return false;
+    }
+
+    const wrapper = this.editor.getWrapper();
+    if (selected === wrapper || selected.get('removable') === false) {
+      return false;
+    }
+
+    selected.remove();
+    this.editor.select(undefined);
+
+    this.emit('update');
+    this.emit('history:change');
+    return true;
+  }
+
+  getSelectedComponent(): SelectedComponentInfo | null {
+    if (!this.editor) {
+      return null;
+    }
+
+    const selected = this.editor.getSelected();
+    if (!selected) {
+      return null;
+    }
+
+    const wrapper = this.editor.getWrapper();
+    if (selected === wrapper) {
+      return null;
+    }
+
+    const classesRaw = selected.getClasses?.() || [];
+    const classes: string[] = classesRaw
+      .map((c: unknown) => {
+        if (typeof c === 'string') return c;
+        if (typeof c === 'object' && c !== null && 'name' in c) {
+          return String((c as { name?: unknown }).name || '');
+        }
+        return '';
+      })
+      .filter((c: string) => c.length > 0);
+
+    const tagName = (selected.get('tagName') || 'div').toLowerCase();
+    const name = selected.getName?.() || selected.get('name') || tagName;
+
+    return {
+      id: selected.getId?.() || '',
+      tagName,
+      name: String(name),
+      classes,
+      isRemovable: selected.get('removable') !== false,
+      isCopyable: selected.get('copyable') !== false,
+    };
+  }
+
+  select(component: unknown): void {
+    if (this.editor && component) {
+      this.editor.select(component as Parameters<Editor['select']>[0]);
+    }
+  }
+
+  clearSelection(): void {
+    if (this.editor) {
+      this.editor.select(undefined);
+    }
+  }
+
+  on(event: EditorEventType, callback: () => void): () => void {
+    const listeners = this.eventListeners.get(event);
+    if (listeners) {
+      listeners.add(callback);
+    }
+    return () => {
+      listeners?.delete(callback);
+    };
+  }
+
+  private emit(event: EditorEventType): void {
+    const listeners = this.eventListeners.get(event);
+    if (listeners) {
+      for (const listener of listeners) {
+        try {
+          listener();
+        } catch {
+          // Prevent listener exceptions from breaking editor flow
+        }
+      }
+    }
+  }
+}

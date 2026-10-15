@@ -1,0 +1,8 @@
+{
+  "id": "artifact-epic-0-scaffold",
+  "type": "Artifact",
+  "kind": "implementation",
+  "path": "package.json",
+  "contentHash": "03cd088f275bd58e649271e1e8c47ae8fcc4109ea183323c77564e803b90b8fb",
+  "status": "CURRENT"
+}

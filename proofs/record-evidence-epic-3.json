@@ -1,0 +1,9 @@
+{
+  "id": "evidence-epic-3-import",
+  "type": "Evidence",
+  "supports": "artifact-epic-3-import",
+  "outcome": "PASS",
+  "targetHash": "74316a0e53788197f07ff8370a2559b56e57d0ab6bfc0e6d73ff6ff19323238b",
+  "proofPath": "proofs/epic-3-import-review.txt",
+  "proofHash": "63433a427ca4fded6bd891f7e531a54d57d05f03527956b3f8bb75df99b3f81a"
+}

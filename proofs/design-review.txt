@@ -1,0 +1,21 @@
+Project: HTML Visual Builder
+Phase: design
+Task: task-design
+Target Artifact: html-visual-builder-spec/docs/04_ARCHITECTURE.md
+Target Hash: 9e260b5584d85de912f8fff144ed079494171835278f56bb06fd9dee7860cb0b
+Review Status: PASS
+Findings:
+1. Architectural Layers Established:
+   - Layer A (UI Features): React application shell, toolbar, panels, modals, toasts.
+   - Layer B (Editor Adapter): Encapsulates GrapesJS core instance, event mapping, command dispatch, canvas interaction.
+   - Layer C (Domain / Document): Pure functions for parsing, sanitizing (DOMPurify), URL policy enforcement, import warnings, and standalone HTML export.
+   - Layer D (Persistence): BrowserProjectRepository for IndexedDB / LocalStorage storage with schema versioning.
+2. Tech Stack Contract:
+   - React 19, GrapesJS Core 0.23.8, DOMPurify 3.4.16, Zustand 5.0.15, TypeScript Strict, Vite.
+3. Security Contracts:
+   - Mandatory sanitization of imported HTML prior to editor ingestion.
+   - Complete removal of <script> tags, inline event handlers, and javascript: pseudo-protocols.
+   - Iframe canvas isolation preventing style and execution leakage.
+4. Component Boundaries & Interfaces:
+   - Defined VisualEditor interface and decoupled feature components as specified in 04_ARCHITECTURE.md and 13_FILE_TREE.md.
+Verified Date: 2026-10-15

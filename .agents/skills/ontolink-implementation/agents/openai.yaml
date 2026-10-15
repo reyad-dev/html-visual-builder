@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Implementation"
+  short_description: "Implement ready tasks and record artifact evidence"
+  default_prompt: "Use $ontolink-implementation to implement a ready task using the actual engineering skills and contracts."

@@ -1,0 +1,36 @@
+Project: HTML Visual Builder
+Phase: build
+Task: task-epic-2-inspector
+Target Artifact: src/features/inspector/InspectorPanel.tsx
+Target Hash: 9e488e17bc9af6822a47821960810f2cebddc450675fcc7808442831b8054640
+Review Status: PASS
+Findings:
+1. Epic 2 Style Inspector & Property Manager Tasks Completed:
+   - T-0201: Implemented 7 collapsible Style Manager sectors (Layout, Spacing, Size, Typography, Background, Border, Effects) with dark theme styling.
+   - T-0202: Implemented Layout controls (Display, Flex Direction, Justify Content, Align Items, Flex Wrap, Gap with unit selection).
+   - T-0203: Implemented Spacing controls (4-sided Margin and Padding controls with px, rem, em, % units).
+   - T-0204: Implemented Size controls (Width, Min Width, Max Width, Height, Min Height, Max Height, Overflow).
+   - T-0205: Implemented Typography controls (Font Family, Font Size, Font Weight, Text Color with hex/color picker, Text Align, Line Height, Letter Spacing, Text Decoration).
+   - T-0206: Implemented Background controls (Background Color with color picker, Background Image URL, Background Size, Position, Repeat).
+   - T-0207: Implemented Border controls (Border Style, Width, Color, Radius with unit selection).
+   - T-0208: Implemented Effects controls (Opacity slider with live readout, Box Shadow input).
+   - T-0209: Implemented Attributes panel with CSS classes manager, ID, Title, element-specific controls (<a> href/target/rel, <img> src/alt, <button> type, <input> type/placeholder), and custom attributes table.
+   - T-0210: Implemented URL validation security policy rejecting javascript:, vbscript:, and non-image data: URLs, plus blocking all event handler attributes (on*).
+2. Acceptance Criteria Gates Passed:
+   - AC-STYLE-001 P0: Text color can be edited.
+   - AC-STYLE-002 P0: Font size can be edited.
+   - AC-STYLE-003 P0: Margin and padding can be edited.
+   - AC-STYLE-004 P0: Background color can be edited.
+   - AC-STYLE-005 P0: Width and max-width can be edited.
+   - AC-STYLE-006 P0: Border and border-radius can be edited.
+   - AC-STYLE-007 P1: Box shadow can be edited.
+   - AC-ATTR-001 P0: Link href can be edited.
+   - AC-ATTR-002 P0: Image src and alt can be edited.
+   - AC-ATTR-003 P0: javascript: URLs are strictly rejected with validation alert.
+   - AC-ATTR-004 P0: Arbitrary on* event handlers are strictly blocked.
+   - AC-HIST-002 P0: Style changes record undo history.
+   - AC-ENG-001 P0: npm run typecheck exited with code 0.
+   - AC-ENG-002 P0: npm run lint exited with code 0.
+   - AC-ENG-003 P0: npm run test passed (49/49 unit & integration tests across 8 test suites).
+   - AC-ENG-004 P0: npm run build generated clean production bundle in dist/.
+Verified Date: 2026-10-15

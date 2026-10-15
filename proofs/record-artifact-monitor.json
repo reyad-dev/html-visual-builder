@@ -1,0 +1,9 @@
+{
+  "id": "artifact-runtime-monitoring",
+  "type": "Artifact",
+  "title": "Runtime Monitoring and Health Audit Report",
+  "kind": "monitoring",
+  "path": "MONITORING.md",
+  "contentHash": "23491043f2bfd9d35287ab7a3de79ea844b485b6ac49bc43da1b31ccdd3ed7a9",
+  "status": "CURRENT"
+}

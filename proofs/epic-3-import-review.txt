@@ -1,0 +1,39 @@
+Project: HTML Visual Builder
+Phase: build
+Task: task-epic-3-import
+Target Artifact: src/domain/document/importDocument.ts
+Target Hash: 74316a0e53788197f07ff8370a2559b56e57d0ab6bfc0e6d73ff6ff19323238b
+Review Status: PASS
+Findings:
+1. Epic 3 Secure HTML/CSS Import Pipeline Tasks Completed:
+   - T-0301: Defined SanitizedDocument, ImportWarning, DocumentMeta, and options types in src/domain/document/types.ts & warnings.ts.
+   - T-0302: Implemented DOMParser extraction for metadata, title, lang, and markup in src/domain/document/parseHtmlDocument.ts.
+   - T-0303: Implemented inline <style> extraction from <head> and <body>, stripped from component markup to avoid canvas duplication.
+   - T-0304: Implemented external stylesheet (<link rel="stylesheet">) and remote asset detection with structured warnings.
+   - T-0305: Implemented DOMPurify sanitizer with strict tag/attribute forbidden lists and removal tracking in src/domain/document/sanitizeHtml.ts.
+   - T-0306: Implemented URL policy normalization and validation against javascript:, vbscript:, and unsafe data payloads in src/domain/document/urlPolicy.ts.
+   - T-0307: Composed end-to-end importDocument pipeline enforcing 5MB max file size in src/domain/document/importDocument.ts.
+   - T-0308: Added malicious security fixtures covering all threat vectors from 09_SECURITY.md in tests/fixtures/securityFixtures.ts.
+   - T-0309: Built comprehensive unit tests in src/domain/document/importDocument.test.ts (10/10 passing).
+   - T-0310: Built accessible ImportModal component with dark-mode styling in src/features/import/ImportModal.tsx & import.css.
+   - T-0311: Implemented Paste HTML flow with live textarea input and validation.
+   - T-0312: Implemented File upload flow supporting .html/.htm files with size constraints and FileReader parsing.
+   - T-0313: Added warning banner displaying stripped scripts, event handlers, external stylesheets, and remote assets.
+   - T-0314: Implemented dirty project protection guard requiring explicit confirmation before canvas overwrite (AC-IMPORT-009).
+   - T-0315: Implemented loadSanitizedDocumentIntoAdapter loading components, CSS reset, wrapper protection, and resetting history in src/domain/document/loadDocument.ts.
+2. Acceptance Criteria Gates Passed:
+   - AC-IMPORT-001 P0: Paste full HTML document imports body.
+   - AC-IMPORT-002 P0: Upload .html imports.
+   - AC-IMPORT-003 P0: Inline <style> CSS is loaded.
+   - AC-IMPORT-004 P0: <script> is removed.
+   - AC-IMPORT-005 P0: inline event handlers are removed.
+   - AC-IMPORT-006 P0: javascript: URLs are removed/rejected.
+   - AC-IMPORT-007 P0: external stylesheet is reported as warning when not loaded.
+   - AC-IMPORT-008 P0: failed import does not overwrite current project.
+   - AC-IMPORT-009 P0: dirty project receives replace confirmation before import.
+   - AC-IMPORT-010 P0: malicious security fixtures execute no JavaScript.
+   - AC-ENG-001 P0: npm run typecheck passed with 0 errors.
+   - AC-ENG-002 P0: npm run lint passed with 0 errors.
+   - AC-ENG-003 P0: npm run test passed (69/69 tests across 10 test suites).
+   - AC-ENG-004 P0: npm run build completed with clean bundle.
+Verified Date: 2026-10-15

@@ -1,0 +1,10 @@
+node_modules
+dist
+.agents
+knowledge.owl
+proofs
+html-visual-builder-spec
+package-lock.json
+AGENTS.md
+GEMINI.md
+tests/fixtures

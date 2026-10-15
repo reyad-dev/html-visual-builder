@@ -1,0 +1,101 @@
+@prefix ol: <urn:ontolink:> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ol:ConfidenceAssessmentShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:rationale ],
+        [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:calibrated ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:method ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 1 ;
+            sh:minInclusive 0 ;
+            sh:path ol:value ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:assesses ] ;
+    sh:targetClass ol:ConfidenceAssessment .
+
+ol:EvidenceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:proofHash ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:targetHash ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "PASS"^^xsd:string "FAIL"^^xsd:string "BLOCKED"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:outcome ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:proofPath ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:supports ] ;
+    sh:targetClass ol:Evidence .
+
+ol:LikelihoodAssessmentShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:calibrated ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:eventScope ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:rationale ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:method ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:assesses ],
+        [ sh:datatype xsd:decimal ;
+            sh:maxCount 1 ;
+            sh:maxInclusive 1 ;
+            sh:minInclusive 0 ;
+            sh:path ol:value ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:timeHorizon ] ;
+    sh:targetClass ol:LikelihoodAssessment .
+
+ol:TaskShape a sh:NodeShape ;
+    sh:property [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:phase ],
+        [ sh:datatype xsd:string ;
+            sh:in ( "TODO"^^xsd:string "READY"^^xsd:string "RUNNING"^^xsd:string "BLOCKED"^^xsd:string "DONE"^^xsd:string ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:status ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:title ],
+        [ sh:datatype xsd:string ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path ol:owner ] ;
+    sh:targetClass ol:Task .
+

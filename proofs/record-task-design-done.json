@@ -1,0 +1,21 @@
+{
+  "id": "task-design",
+  "type": "Task",
+  "status": "DONE",
+  "phase": "design",
+  "title": "Design architecture, security contracts, and adapter boundaries",
+  "owner": "ontolink-architecture",
+  "weight": "1.0",
+  "requiredKind": ["contracts"],
+  "dependsOn": ["task-discover"],
+  "usesArtifact": [
+    "artifact-spec-agents",
+    "doc-03-tech-stack",
+    "doc-04-architecture",
+    "doc-05-editor-behavior",
+    "doc-06-import-export",
+    "doc-09-security",
+    "doc-13-file-tree",
+    "doc-14-decisions"
+  ]
+}

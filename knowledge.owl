@@ -1,0 +1,1357 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns:ol="urn:ontolink:" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder">
+    <rdf:type rdf:resource="urn:ontolink:Project" />
+    <ol:revision rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">86</ol:revision>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HTML Visual Builder</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/actor-coding-agent">
+    <rdf:type rdf:resource="urn:ontolink:Actor" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.261614+00:00</ol:createdAt>
+    <ol:role rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ontology-mediated full-stack implementation agent adhering to strict spec</ol:role>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Autonomous Coding Agent</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/actor-coordinator">
+    <rdf:type rdf:resource="urn:ontolink:Actor" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.325233+00:00</ol:createdAt>
+    <ol:role rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lifecycle mediator, dependency guardian, and context synthesizer</ol:role>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OntoLink Project Coordinator</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/actor-user">
+    <rdf:type rdf:resource="urn:ontolink:Actor" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.198225+00:00</ol:createdAt>
+    <ol:role rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visual builder user creating and editing static HTML/CSS web pages</ol:role>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">End User / Web Designer</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-epic-0-scaffold">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">03cd088f275bd58e649271e1e8c47ae8fcc4109ea183323c77564e803b90b8fb</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:15:28.320137+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">package.json</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-epic-1-editor-core">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a32b27c6a75ebed863e449f8ffce55a183470bde6ded4d27d7db82f761060d3e</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:38:23.716658+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">src/editor/EditorAdapter.ts</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visual Editor Core Implementation</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-epic-2-inspector">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9e488e17bc9af6822a47821960810f2cebddc450675fcc7808442831b8054640</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:21:00.661084+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">src/features/inspector/InspectorPanel.tsx</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Style Inspector &amp; Property Manager Implementation</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-epic-3-import">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">74316a0e53788197f07ff8370a2559b56e57d0ab6bfc0e6d73ff6ff19323238b</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:45:17.560649+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">src/domain/document/importDocument.ts</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Secure HTML/CSS Import Pipeline Implementation</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-epic-4-persistence">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5dc7ceb78f7455651236e01dd82af7882f221afe5fdb6cc74827107255559b60</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:03:06.867944+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">src/data/projects/BrowserProjectRepository.ts</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Browser Project Persistence Implementation</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-epic-5-export">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d3fbdbde53b7df82dd7033e087b1ce8808727cff40fc5d2a7e1a8899f9028843</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:14:42.060792+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">src/domain/document/exportDocument.ts</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Standalone HTML/CSS Export Implementation</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-epic-6-verify-e2e">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21c2566b79e7dd6ae6c2407093321417760e4fd93ef683a289bf92d91eca2311</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:43:17.105754+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verification</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tests/e2e/e2e-009-acceptance-suite.spec.ts</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comprehensive E2E and Acceptance Verification Suite</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-project-spec-json">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9f1dfb0e9ce9de3f0213c7c6f4d7dac297f65c4e76fbca796f6403aff7e3edda</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.399306+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirements</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/project-spec.json</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-release-handoff">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">950948d5aa8c3077decbf4928c9bc5e031132b392fcd68b55e97f4bfc84249f9</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:52:08.174186+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">handoff</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HANDOFF.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Release Handoff and Deployment Documentation</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-runtime-monitoring">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23491043f2bfd9d35287ab7a3de79ea844b485b6ac49bc43da1b31ccdd3ed7a9</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:56:14.273592+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitoring</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MONITORING.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Runtime Monitoring and Health Audit Report</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-spec-agents">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1e82c8aa0ee4bff6811a7c8c78e94a5e233a2e72c7250c34492b9671f7773b86</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.516432+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/AGENTS.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-spec-readme">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cb2cf5d8a20e46c22b26a910a763c3c1ceb13c6975cb7b5a3722d085a2694a79</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.469049+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirements</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/README.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/artifact-tasks-backlog">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">71b20d237813ddb8450ba37934e7c76979fac37bb93ba1b6af7d3ca18fdae135</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.573773+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">plan</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/TASKS.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/contract-export-format">
+    <rdf:type rdf:resource="urn:ontolink:Contract" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/06_IMPORT_EXPORT.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.897107+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Valid HTML5 doctype, UTF-8 charset, responsive viewport meta, inline sanitized CSS, clean body markup.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Standalone Export Contract</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-06-import-export" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/contract-saved-project-schema">
+    <rdf:type rdf:resource="urn:ontolink:Contract" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/07_DATA_MODEL.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.740727+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Schema v1: id, name, createdAt, updatedAt, sourceMeta, editorProjectData.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">SavedProject Data Contract</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-07-data-model" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/contract-security-policy">
+    <rdf:type rdf:resource="urn:ontolink:Contract" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/09_SECURITY.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.544415+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Never execute imported JavaScript or fetch remote scripts. Strip script tags, javascript: URI schemes, and inline event handlers.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Untrusted Code Execution Prohibition</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-09-security" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/contract-tech-stack">
+    <rdf:type rdf:resource="urn:ontolink:Contract" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/03_TECH_STACK.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.183660+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">React 18 + TypeScript (strict) + Vite + GrapesJS Core + DOMPurify + Vitest + Playwright.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Approved Technology Stack</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-03-tech-stack" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/contract-ui-engine-boundary">
+    <rdf:type rdf:resource="urn:ontolink:Contract" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AGENTS.md &amp; docs/04_ARCHITECTURE.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.380608+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GrapesJS owns component tree, styles, canvas selection, and undo/redo. React/Zustand owns only UI shell state. Never duplicate GrapesJS model in React state.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UI and Editor Engine Boundary</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-spec-agents" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-04-architecture" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/dec-browser-storage">
+    <rdf:type rdf:resource="urn:ontolink:Decision" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/03_TECH_STACK.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.465492+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Use browser localStorage / IndexedDB abstraction interface for MVP project saving without remote server backend.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Browser Storage for MVP</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/dec-dompurify-sanitizer">
+    <rdf:type rdf:resource="urn:ontolink:Decision" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/09_SECURITY.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.265814+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Use DOMPurify with strict static document configuration rather than regex-based parsing.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DOMPurify Sanitization</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/dec-grapesjs-core">
+    <rdf:type rdf:resource="urn:ontolink:Decision" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/14_DECISIONS_AND_TROUBLESHOOTING.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.063744+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Avoid custom drag-and-drop engine; rely on GrapesJS component tree, style manager, and canvas interactions.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Adopt GrapesJS Core Engine</ol:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-01-product-spec">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">91708c2d6b1194a45f4b70f586f92b2a822de420c1fb4bfbf0193b976d173431</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.632320+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirements</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/01_PRODUCT_SPEC.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-02-scope">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5e0d3959c5560f95cc8a07fdb714878e2825b720ea79d512d7ec86d8a0289126</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.684375+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirements</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/02_SCOPE_AND_NON_GOALS.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-03-tech-stack">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">10416f750274ed7df48b1d50052461c7a3e50da09569cf3195eeee3fef828513</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.762153+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/03_TECH_STACK.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-04-architecture">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9e260b5584d85de912f8fff144ed079494171835278f56bb06fd9dee7860cb0b</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.841697+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/04_ARCHITECTURE.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-05-editor-behavior">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">8fbd626c85da1feb4f0523a8eb647f763d77b323e89875cd5895540ddcf30e21</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.916808+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/05_EDITOR_BEHAVIOR.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-06-import-export">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">e2636a2a7dd89faee340d9fd58b6ee3f25271b0e2ee355c4cc827484f705474a</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.998172+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/06_IMPORT_EXPORT.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-07-data-model">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">50f02399c0fec6b4c3cf2ca2203e901097044e5a0cba01406c1ad5b5e2270107</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.165034+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirements</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/07_DATA_MODEL.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-08-ui-ux">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">723d34639e27de0015e506f14e97feaf00ebd544dc395b3465c5b77b2cd84ae7</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.398289+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirements</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/08_UI_UX_SPEC.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-09-security">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ccc8290336b56b04e2f294503ff1a18839ec3e9cfc04d1b14d1422a3f9990f27</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.499572+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/09_SECURITY.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-10-testing">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">6e8b4cd97c831b3809c6d439cc13d1c09a41b15f51a06958510ba0fba3f07d72</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.595225+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verification</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/10_TESTING.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-11-implementation-plan">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23883c6a72c194c76aaa22afc5090b0c67829b4230bf1c8c32d4621934986935</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.679715+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">plan</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/11_IMPLEMENTATION_PLAN.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-12-acceptance-criteria">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">defb258d505db1629e2b228a1c127bc98c0934dd2f1caa4ce0ec4f612ec2243a</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.759467+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verification</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/12_ACCEPTANCE_CRITERIA.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-13-file-tree">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7f817c5931cce3a9a3b913307e877976551c583464baa67b2347cfae0d361752</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.845229+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/13_FILE_TREE.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-14-decisions">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9dffe3ae4484bb884d0e3b40de6740263a5dd0f338c8ee62d8a6dc7ea25e6dae</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.935479+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/14_DECISIONS_AND_TROUBLESHOOTING.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/doc-15-future-roadmap">
+    <rdf:type rdf:resource="urn:ontolink:Artifact" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:contentHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">896dda110d1a6ca38e5dd644fefc0fa4b45dc08f962ff3a420be38f000c10e4a</ol:contentHash>
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.053887+00:00</ol:createdAt>
+    <ol:kind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">plan</ol:kind>
+    <ol:path rdf:datatype="http://www.w3.org/2001/XMLSchema#string">html-visual-builder-spec/docs/15_FUTURE_ROADMAP.md</ol:path>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CURRENT</ol:status>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-1">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/actor-user" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.213802+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-10">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-03-tech-stack" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.799424+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-11">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-04-architecture" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.878846+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-12">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-05-editor-behavior" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.947992+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-13">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-06-import-export" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.057185+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-14">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-07-data-model" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.258624+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-15">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-08-ui-ux" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.454303+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-16">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-09-security" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.552689+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-17">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-10-testing" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.635470+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-18">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-11-implementation-plan" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.727636+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-19">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-12-acceptance-criteria" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.799639+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-2">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/actor-coding-agent" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.281585+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-20">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-13-file-tree" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:03.895250+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-21">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-14-decisions" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.005986+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-22">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-15-future-roadmap" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.119108+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-23">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/req-visual-builder-core" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.219499+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-24">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/req-editor-engine-grapesjs" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.324618+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-25">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/req-secure-import" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.450615+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-26">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/req-json-persistence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.664270+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-27">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/req-standalone-export" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.930997+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-28">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/req-client-only-mvp" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.113973+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-29">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/contract-tech-stack" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.296747+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-3">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/actor-coordinator" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.349897+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-30">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/contract-ui-engine-boundary" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.480489+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-31">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/contract-security-policy" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.660550+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-32">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/contract-saved-project-schema" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.828073+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-33">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/contract-export-format" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.987172+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-34">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/dec-grapesjs-core" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.191953+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-35">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/dec-dompurify-sanitizer" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.378204+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-36">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/dec-browser-storage" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.592463+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-37">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-discover" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.833899+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-38">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-design" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.039894+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-39">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-plan" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.240821+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-4">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-project-spec-json" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.416268+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-40">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-0-scaffold" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.439525+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-41">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.646410+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-42">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-2-inspector" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.867682+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-43">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-3-import" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.079579+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-44">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-4-persistence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.374094+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-45">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-5-export" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.579583+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-46">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-build" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.830566+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-47">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-6-verify-e2e" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:09.080664+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-48">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-verify" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:09.340896+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-49">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-deliver" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:09.662284+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-5">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-spec-readme" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.484859+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-50">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-monitor" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:09.949073+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-51">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-spec-agents" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:19:58.134558+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-52">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-discover-review" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:31:44.970954+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-53">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-discover" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:32:05.027023+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-54">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-design-review" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:39:39.454907+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-55">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-design" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:42:08.764680+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-56">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-plan-review" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:43:35.123855+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-57">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-plan" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:43:56.816327+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-58">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-0-scaffold" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:15:28.459718+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-59">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-epic-0-scaffold" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:15:53.778100+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-6">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-spec-agents" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.531445+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-60">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-0-scaffold" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:16:13.654630+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-61">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-1-editor-core" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:38:23.872420+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-62">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-epic-1-editor-core" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:38:36.385280+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-63">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:38:50.897461+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-64">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-2-inspector" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:21:00.867719+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-65">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-epic-2-inspector" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:21:18.119816+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-66">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-2-inspector" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:23:24.126176+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-67">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-3-import" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:45:17.777145+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-68">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-epic-3-import" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:45:24.711544+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-69">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-3-import" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:45:30.389661+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-7">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-tasks-backlog" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.587785+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-70">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-4-persistence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:03:07.104708+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-71">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-epic-4-persistence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:03:10.927442+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-72">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-4-persistence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:03:15.775600+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-73">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-5-export" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:14:42.303607+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-74">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-epic-5-export" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:14:58.569096+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-75">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-5-export" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:15:15.867845+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-76">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-build" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:16:35.283436+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-77">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-6-verify-e2e" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:43:17.421745+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-78">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-epic-6-verify-e2e" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:43:28.085215+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-79">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-6-verify-e2e" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:43:32.941681+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-8">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-01-product-spec" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.651099+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-80">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-verify" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:43:52.943638+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-81">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-release-handoff" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:52:08.506300+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-82">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-release-handoff" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:52:13.955529+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-83">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-deliver" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:52:19.539920+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-84">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/artifact-runtime-monitoring" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:56:14.656345+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-85">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/evidence-runtime-monitoring" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:56:20.522886+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-86">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/task-monitor" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:56:25.453539+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/event-9">
+    <rdf:type rdf:resource="urn:ontolink:Event" />
+    <ol:action rdf:datatype="http://www.w3.org/2001/XMLSchema#string">record-upsert</ol:action>
+    <ol:affects rdf:resource="urn:ontolink:project:html-visual-builder/doc-02-scope" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:02.717655+00:00</ol:createdAt>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-design-review">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:39:39.255136+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">e70fd79b1a426a370d0c11d58a927778d76bf3202e113cc118b5ce60ee2b2dcc</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/design-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/doc-04-architecture" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9e260b5584d85de912f8fff144ed079494171835278f56bb06fd9dee7860cb0b</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-discover-review">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:31:44.720810+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">75c784f8d66e3f017081c80c7a221714be991c0a35e8806f46314a36f5ff6568</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/discovery-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-project-spec-json" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9f1dfb0e9ce9de3f0213c7c6f4d7dac297f65c4e76fbca796f6403aff7e3edda</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-epic-0-scaffold">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:15:53.645178+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">51f6db5005820ae347cd00086749c8c53a9552309be74519f54503219a543133</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/epic-0-scaffold-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-0-scaffold" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">03cd088f275bd58e649271e1e8c47ae8fcc4109ea183323c77564e803b90b8fb</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-epic-1-editor-core">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T18:38:36.236023+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c79aa48d98529af7d510a6fef7940ecc7298f43e915e46a6d544daf232075bf2</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/epic-1-editor-core-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-1-editor-core" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a32b27c6a75ebed863e449f8ffce55a183470bde6ded4d27d7db82f761060d3e</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-epic-2-inspector">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:21:17.903140+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">125a2a9cb720423332fd671b4d48fc5276d7ffbed4aecc2888e700e463f06a21</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/epic-2-inspector-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-2-inspector" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">9e488e17bc9af6822a47821960810f2cebddc450675fcc7808442831b8054640</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-epic-3-import">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T19:45:24.497286+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">63433a427ca4fded6bd891f7e531a54d57d05f03527956b3f8bb75df99b3f81a</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/epic-3-import-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-3-import" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">74316a0e53788197f07ff8370a2559b56e57d0ab6bfc0e6d73ff6ff19323238b</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-epic-4-persistence">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:03:10.694305+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c8c02f3e6a0bf7a841fdfe130e14cdf3f36e5ea88063f24ddf0e71b5d0a0cbf2</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/epic-4-persistence-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-4-persistence" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5dc7ceb78f7455651236e01dd82af7882f221afe5fdb6cc74827107255559b60</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-epic-5-export">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:14:58.235933+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">f0250d8d585e0bde7fe8e6f5b1085ccd34088cb7da77294d1ff6e57ebf298d22</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/epic-5-export-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-5-export" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d3fbdbde53b7df82dd7033e087b1ce8808727cff40fc5d2a7e1a8899f9028843</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-epic-6-verify-e2e">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:43:27.785338+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">aa31bf82241c206ad4c908ffd13488ec25e41e7042f9fb5f73a01d8cb87058c1</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/epic-6-verify-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-6-verify-e2e" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">21c2566b79e7dd6ae6c2407093321417760e4fd93ef683a289bf92d91eca2311</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-plan-review">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:43:34.924641+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">be9ad8a459b5c82fd1a69af690daa2bdfbf04dd123e8cfef06eec39b626f7d17</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/plan-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-tasks-backlog" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">71b20d237813ddb8450ba37934e7c76979fac37bb93ba1b6af7d3ca18fdae135</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-release-handoff">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:52:13.605729+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">5afd87b7e494923dac9ebd48005c779d69a51d81f8e05d21ab92a05bc8c1d807</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/deliver-handoff-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-release-handoff" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">950948d5aa8c3077decbf4928c9bc5e031132b392fcd68b55e97f4bfc84249f9</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/evidence-runtime-monitoring">
+    <rdf:type rdf:resource="urn:ontolink:Evidence" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T20:56:20.138117+00:00</ol:createdAt>
+    <ol:outcome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PASS</ol:outcome>
+    <ol:proofHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">a2067486382005e51b6ed18ac278dc6f65492cbc9b6d7b424ad73a2aaa1360e8</ol:proofHash>
+    <ol:proofPath rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proofs/monitor-review.txt</ol:proofPath>
+    <ol:supports rdf:resource="urn:ontolink:project:html-visual-builder/artifact-runtime-monitoring" />
+    <ol:targetHash rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23491043f2bfd9d35287ab7a3de79ea844b485b6ac49bc43da1b31ccdd3ed7a9</ol:targetHash>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/req-client-only-mvp">
+    <rdf:type rdf:resource="urn:ontolink:Requirement" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/02_SCOPE_AND_NON_GOALS.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:05.024411+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Zero backend, zero cloud database, zero external authentication, zero AI generation in MVP scope.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Client-Side Only MVP Scope</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-02-scope" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/req-editor-engine-grapesjs">
+    <rdf:type rdf:resource="urn:ontolink:Requirement" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/03_TECH_STACK.md and docs/04_ARCHITECTURE.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.264445+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Use GrapesJS Core as the visual canvas and component tree engine behind a typed adapter layer.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GrapesJS Core Integration</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-03-tech-stack" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-04-architecture" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/req-json-persistence">
+    <rdf:type rdf:resource="urn:ontolink:Requirement" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/07_DATA_MODEL.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.537884+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Persist project state as GrapesJS Project Data JSON in browser local storage, not plain HTML/CSS strings.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Canonical JSON Persistence</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-07-data-model" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/req-secure-import">
+    <rdf:type rdf:resource="urn:ontolink:Requirement" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/06_IMPORT_EXPORT.md and docs/09_SECURITY.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.366172+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Import untrusted HTML via browser DOMParser, strip script tags and inline executable event handlers via DOMPurify before canvas load.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Secure HTML Import Pipeline</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-06-import-export" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-09-security" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/req-standalone-export">
+    <rdf:type rdf:resource="urn:ontolink:Requirement" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/06_IMPORT_EXPORT.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.767670+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generate standalone single-file HTML/CSS document without builder runtime dependencies or tracking scripts.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Clean Standalone HTML Export</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-06-import-export" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/req-visual-builder-core">
+    <rdf:type rdf:resource="urn:ontolink:Requirement" />
+    <ol:basis rdf:datatype="http://www.w3.org/2001/XMLSchema#string">docs/01_PRODUCT_SPEC.md</ol:basis>
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:04.164230+00:00</ol:createdAt>
+    <ol:summary rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Browser-based visual builder for importing, editing, and exporting static HTML/CSS with mouse-driven controls and block palette.</ol:summary>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Static HTML/CSS Visual Canvas</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-project-spec-json" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-01-product-spec" />
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-build">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.675534+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-0-scaffold" />
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core" />
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-2-inspector" />
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-3-import" />
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-4-persistence" />
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-5-export" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-implementation</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:build" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complete Build Phase Implementation</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-0-scaffold" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-1-editor-core" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-2-inspector" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-3-import" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-4-persistence" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-5-export" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-deliver">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:09.513688+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-verify" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-delivery</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:deliver" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">handoff</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Deliver standalone release bundle and handoff documentation</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-release-handoff" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-design">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.898959+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-discover" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-architecture</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:design" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contracts</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Design architecture, security contracts, and adapter boundaries</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-spec-agents" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-03-tech-stack" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-04-architecture" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-05-editor-behavior" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-06-import-export" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-09-security" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-13-file-tree" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-14-decisions" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-discover">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:06.742626+00:00</ol:createdAt>
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-discovery</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:discover" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">requirements</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Discover project requirements and specifications</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-project-spec-json" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-spec-readme" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-01-product-spec" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-02-scope" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-07-data-model" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-08-ui-ux" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-epic-0-scaffold">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.296730+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-plan" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-implementation</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:build" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epic 0: Project Scaffold and Tooling (T-0001 to T-0007)</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-0-scaffold" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-tasks-backlog" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-03-tech-stack" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-13-file-tree" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.512900+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-0-scaffold" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-implementation</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:build" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epic 1: Visual Editor Core Engine &amp; Canvas (T-0101 to T-0112)</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-1-editor-core" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-04-architecture" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-05-editor-behavior" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-epic-2-inspector">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.729795+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-implementation</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:build" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epic 2: Style Inspector &amp; Property Manager (T-0201 to T-0210)</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-2-inspector" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-05-editor-behavior" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-08-ui-ux" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-epic-3-import">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.945691+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-implementation</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:build" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epic 3: Secure HTML/CSS Import Pipeline (T-0301 to T-0315)</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-3-import" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-06-import-export" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-09-security" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-epic-4-persistence">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.180941+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-implementation</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:build" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epic 4: Browser Project Persistence (T-0401 to T-0408)</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-4-persistence" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-07-data-model" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-epic-5-export">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.461276+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-1-editor-core" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-implementation</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:build" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">implementation</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epic 5: Standalone HTML/CSS Export (T-0501 to T-0507)</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-5-export" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-06-import-export" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-epic-6-verify-e2e">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:08.912762+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-build" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-verification</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:verify" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verification</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Epic 6: Comprehensive Verification &amp; Acceptance (T-0601 to T-0610)</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-6-verify-e2e" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-10-testing" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-12-acceptance-criteria" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-monitor">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:09.745762+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-deliver" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-monitoring</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:monitor" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitoring</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Monitor runtime security compliance and zero console error health</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-runtime-monitoring" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-plan">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:07.113424+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-design" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-planning</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:plan" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">plan</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Plan implementation backlog and epic dependency graph</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-tasks-backlog" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-11-implementation-plan" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-15-future-roadmap" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+  <rdf:Description rdf:about="urn:ontolink:project:html-visual-builder/task-verify">
+    <rdf:type rdf:resource="urn:ontolink:Task" />
+    <ol:belongsTo rdf:resource="urn:ontolink:project:html-visual-builder" />
+    <ol:createdAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-10-15T17:18:09.162852+00:00</ol:createdAt>
+    <ol:dependsOn rdf:resource="urn:ontolink:project:html-visual-builder/task-epic-6-verify-e2e" />
+    <ol:owner rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ontolink-verification</ol:owner>
+    <ol:phase rdf:resource="urn:ontolink:verify" />
+    <ol:requiredKind rdf:datatype="http://www.w3.org/2001/XMLSchema#string">verification</ol:requiredKind>
+    <ol:status rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DONE</ol:status>
+    <ol:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Complete Verification Phase Obligations</ol:title>
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/artifact-epic-6-verify-e2e" />
+    <ol:usesArtifact rdf:resource="urn:ontolink:project:html-visual-builder/doc-12-acceptance-criteria" />
+    <ol:weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</ol:weight>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,9 @@
+{
+  "id": "artifact-epic-1-editor-core",
+  "type": "Artifact",
+  "title": "Visual Editor Core Implementation",
+  "kind": "implementation",
+  "path": "src/editor/EditorAdapter.ts",
+  "contentHash": "a32b27c6a75ebed863e449f8ffce55a183470bde6ded4d27d7db82f761060d3e",
+  "status": "CURRENT"
+}

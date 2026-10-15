@@ -1,0 +1,31 @@
+Project: HTML Visual Builder
+Phase: verify
+Task: task-epic-6-verify-e2e
+Target Artifact: tests/e2e/e2e-009-acceptance-suite.spec.ts
+Target Hash: 21c2566b79e7dd6ae6c2407093321417760e4fd93ef683a289bf92d91eca2311
+Review Status: PASS
+Findings:
+1. Epic 6 E2E Verification & Release Acceptance Tasks Completed:
+   - T-0601: Configured Playwright browser E2E with playwright.config.ts targeting Vite server and Chromium headless shell.
+   - T-0602: Implemented E2E-001 blank edit, canvas manipulation, rename, save, and reload persistence test (tests/e2e/e2e-001-blank-edit.spec.ts).
+   - T-0603: Implemented E2E-002 HTML import workflow and dirty project overwrite guard test (tests/e2e/e2e-002-html-import.spec.ts).
+   - T-0604: Implemented E2E-003 responsive preview modes (Desktop, Tablet, Mobile) and Inspector element selection test (tests/e2e/e2e-003-responsive-and-reorder.spec.ts).
+   - T-0605: Implemented E2E-004 undo/redo history tracking and toolbar controls test (tests/e2e/e2e-004-undo-redo.spec.ts).
+   - T-0606: Implemented E2E-005 security fixtures verifying complete script neutralization, inline event handler stripping, javascript: URL rejection, and clean export (tests/e2e/e2e-005-security.spec.ts).
+   - T-0607: Implemented E2E-006 standalone HTML export validation test (tests/e2e/e2e-006-export.spec.ts).
+   - T-0608: Implemented E2E-007 accessibility smoke testing keyboard navigation, Escape dialog closure, and typing focus protection (tests/e2e/e2e-007-accessibility.spec.ts).
+   - T-0609: Implemented E2E-008 console-error audit confirming 0 uncaught exceptions or console errors across user workflows (tests/e2e/e2e-008-console-audit.spec.ts).
+   - T-0610: Implemented E2E-009 comprehensive acceptance checklist test (tests/e2e/e2e-009-acceptance-suite.spec.ts).
+2. Acceptance Criteria Gates Passed:
+   - AC-APP-001..004 P0: Application shell mounts with 0 errors, single editor lifecycle, independent scrolling.
+   - AC-EDIT-001..009 P0: Blocks, selection, text editing, duplicate, delete, and wrapper protections verified.
+   - AC-STYLE-001..006 P0: Text color, font size, margins/paddings, background, width, border/radius verified.
+   - AC-ATTR-001..004 P0: Link href, image src/alt, javascript: URL rejection, on* rejection verified.
+   - AC-HIST-001..004 P0: History undo/redo structural and style actions verified.
+   - AC-RESP-001..004 P0: Responsive presets (desktop/tablet/mobile) preserve canvas content.
+   - AC-IMPORT-001..010 P0: Paste/upload, style preservation, script stripping, URL validation, dirty confirmation, 0 XSS verified.
+   - AC-SAVE-001..005 P0: Canonical GrapesJS schema save, reload persistence, timestamps, and error states verified.
+   - AC-EXPORT-001..008 P0: Standalone HTML bundle generation, body/css copies, doctype/head/meta, safe export verified.
+   - AC-A11Y-001..004 P0: Accessible button names, keyboard shortcuts, Escape closing, typing focus guard verified.
+   - AC-ENG-001..005 P0: npm run typecheck (PASS), npm run lint (PASS), npm test (126/126 PASS), npm run build (PASS), Playwright E2E suite (14/14 PASS).
+Verified Date: 2026-10-15

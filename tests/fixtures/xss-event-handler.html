@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+<head><title>XSS Event Handler</title></head>
+<body>
+  <img src="invalid-url" onerror="alert('xss')" alt="test image" />
+  <button onclick="console.log('attack')">Click</button>
+</body>
+</html>

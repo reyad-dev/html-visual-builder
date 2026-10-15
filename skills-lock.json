@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "ontolink-architecture": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-architecture/SKILL.md",
+      "computedHash": "7f50c126912eefc9db731d18261de74407aa12ac2691fd32e5a6ff9b682cf3d0"
+    },
+    "ontolink-delivery": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-delivery/SKILL.md",
+      "computedHash": "8a4b9146a0bece5703468ba9e8f64839d5592a24ea8a01ee019c8c4f20ca8a0a"
+    },
+    "ontolink-discovery": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-discovery/SKILL.md",
+      "computedHash": "104c429088e6f1f15468f7f35cd3884366d4410dcf09c10cf0a5cb1a1a12e304"
+    },
+    "ontolink-implementation": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-implementation/SKILL.md",
+      "computedHash": "d7e1bac0407d4a9e6f09d949400caff438ab864667ef708211022fa763acdf10"
+    },
+    "ontolink-monitoring": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-monitoring/SKILL.md",
+      "computedHash": "33b4a5974bfe80dae09b0fbc58bbc41fe03bde2c965bff53df47c6bfaf3da9da"
+    },
+    "ontolink-planning": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-planning/SKILL.md",
+      "computedHash": "95a476142ecd87e832d482d26e7c8de930f7330d9760ff41ce406b614794fc24"
+    },
+    "ontolink-skills": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-skills/SKILL.md",
+      "computedHash": "dda50cd581cca4b8d9f38fa4879bfc297a22cf916b9bcc8499bc25d8f799466d"
+    },
+    "ontolink-verification": {
+      "source": "asgmodel/ontolink-skills",
+      "sourceType": "github",
+      "skillPath": "skills/ontolink-verification/SKILL.md",
+      "computedHash": "12b3a035fdab36ba516c3472fc6e1b7f863af58e54fd1dc9ef6f3d4fb2ab8922"
+    }
+  }
+}

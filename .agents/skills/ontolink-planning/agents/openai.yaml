@@ -1,0 +1,4 @@
+interface:
+  display_name: "OntoLink Planning"
+  short_description: "Plan owned tasks, dependencies and risk responses"
+  default_prompt: "Use $ontolink-planning to produce a dependency-aware implementation plan and record blockers and risks."
