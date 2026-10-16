@@ -13,7 +13,7 @@ export const DEFAULT_BLANK_HTML = `
 `.trim();
 
 export const DEFAULT_CANVAS_CSS = `
-body {
+html, body {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -21,6 +21,9 @@ body {
   font-family: 'Alexandria', 'Cairo', 'Tajawal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+}
+html[dir="rtl"], body[dir="rtl"] {
+  direction: rtl;
 }
 * {
   box-sizing: border-box;

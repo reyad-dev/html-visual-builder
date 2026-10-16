@@ -24,6 +24,7 @@ export interface DocumentMeta {
 export interface SanitizedDocument {
   title: string;
   lang?: string | undefined;
+  dir?: 'rtl' | 'ltr' | 'auto' | string | undefined;
   meta: DocumentMeta[];
   bodyHtml: string;
   html?: string | undefined;
@@ -42,6 +43,7 @@ export interface ExportOptions {
   bodyHtml: string;
   css: string;
   lang?: string | undefined;
+  dir?: 'rtl' | 'ltr' | 'auto' | string | undefined;
   meta?: DocumentMeta[] | undefined;
   externalStylesheets?: string[] | undefined;
 }

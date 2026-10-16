@@ -54,5 +54,7 @@ export interface IEditorAdapter {
   clearSelection(): void;
   on(event: EditorEventType, callback: () => void): () => void;
   getExportSnapshot(): ExportSnapshot;
+  setDirection?(dir: 'rtl' | 'ltr'): void;
+  getDirection?(): 'rtl' | 'ltr';
 }
 

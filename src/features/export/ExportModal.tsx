@@ -74,10 +74,17 @@ export function ExportModal(): ReactElement | null {
   const bodyHtml = snapshot.bodyHtml || '';
   const css = snapshot.css || '';
 
+  const isArabicOrRtl =
+    currentSourceMeta.importedDir === 'rtl' ||
+    currentSourceMeta.importedLang?.startsWith('ar') ||
+    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(bodyHtml) ||
+    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(css);
+
   // Generate full standalone HTML document (T-0501)
   const fullHtml = exportStandaloneHtml({
     title: docTitle,
-    lang: currentSourceMeta.importedLang || 'en',
+    lang: currentSourceMeta.importedLang || (isArabicOrRtl ? 'ar' : 'en'),
+    dir: currentSourceMeta.importedDir || (isArabicOrRtl ? 'rtl' : undefined),
     bodyHtml,
     css,
     externalStylesheets: currentSourceMeta.externalStylesheets,

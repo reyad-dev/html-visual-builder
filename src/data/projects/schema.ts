@@ -9,6 +9,7 @@ export interface ProjectSourceMeta {
   originalFileName?: string | undefined;
   importedTitle?: string | undefined;
   importedLang?: string | undefined;
+  importedDir?: string | undefined;
   externalStylesheets: string[];
   importWarnings: ImportWarning[];
 }

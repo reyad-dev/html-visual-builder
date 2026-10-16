@@ -11,6 +11,7 @@ import {
 export interface ParsedDocumentData {
   title: string;
   lang?: string | undefined;
+  dir?: string | undefined;
   meta: DocumentMeta[];
   bodyHtml: string;
   css: string;
@@ -48,9 +49,17 @@ export function parseHtmlDocument(rawHtml: string): ParsedDocumentData {
   const titleEl = doc.querySelector('title');
   const title = titleEl?.textContent?.trim() || 'Untitled Document';
 
-  // Extract <html lang>
+  // Extract <html lang> and <html dir> / <body dir>
   const htmlEl = doc.documentElement;
-  const lang = htmlEl?.getAttribute('lang') || undefined;
+  const rawLang = htmlEl?.getAttribute('lang') || undefined;
+  const rawDir = htmlEl?.getAttribute('dir') || doc.body?.getAttribute('dir') || undefined;
+
+  // First-class priority for Arabic & RTL support
+  const hasArabicChars = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(rawHtml);
+  const isRtl = rawDir?.toLowerCase() === 'rtl' || rawLang?.toLowerCase().startsWith('ar') || hasArabicChars;
+
+  const dir = rawDir ? rawDir.toLowerCase() : (isRtl ? 'rtl' : undefined);
+  const lang = rawLang || (isRtl ? 'ar' : undefined);
 
   // Extract safe <meta> tags
   const meta: DocumentMeta[] = [];
@@ -132,6 +141,7 @@ export function parseHtmlDocument(rawHtml: string): ParsedDocumentData {
   return {
     title,
     lang,
+    dir,
     meta,
     bodyHtml,
     css,

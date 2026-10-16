@@ -43,7 +43,15 @@ export function detectRemoteAssets(html: string): string[] {
  * Safely includes doctype, head, metadata, style block, and sanitized body content.
  */
 export function exportStandaloneHtml(options: ExportOptions): string {
-  const lang = escapeHtml(options.lang?.trim() || 'en');
+  const isRtl =
+    options.dir === 'rtl' ||
+    options.lang?.toLowerCase().startsWith('ar') ||
+    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(options.bodyHtml || '') ||
+    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(options.css || '');
+
+  const lang = escapeHtml(options.lang?.trim() || (isRtl ? 'ar' : 'en'));
+  const rawDir = options.dir?.trim() || (isRtl ? 'rtl' : undefined);
+  const dirAttr = rawDir ? ` dir="${escapeHtml(rawDir)}"` : '';
   const title = escapeHtml(options.title?.trim() || 'Exported Document');
 
   // Sanitize body HTML to guarantee no executable scripts or event handlers exist
@@ -87,7 +95,7 @@ export function exportStandaloneHtml(options: ExportOptions): string {
   const safeCss = (options.css || '').replace(/<\/style/gi, '<\\/style').trim();
 
   return `<!doctype html>
-<html lang="${lang}">
+<html lang="${lang}"${dirAttr}>
   <head>
 ${metaLines.join('\n')}
     <style>
@@ -169,10 +177,12 @@ export async function copyToClipboard(text: string): Promise<boolean> {
  * Creates an isolated iframe, loads Google Fonts & styles, and triggers window.print().
  */
 export function printDocument(options: {
-  title?: string;
+  title?: string | undefined;
+  lang?: string | undefined;
+  dir?: string | undefined;
   bodyHtml: string;
   css: string;
-  externalStylesheets?: string[];
+  externalStylesheets?: string[] | undefined;
 }): void {
   if (typeof document === 'undefined' || typeof window === 'undefined') {
     return;
@@ -181,6 +191,8 @@ export function printDocument(options: {
   const title = options.title || 'Document';
   const fullHtml = exportStandaloneHtml({
     title,
+    lang: options.lang,
+    dir: options.dir,
     bodyHtml: options.bodyHtml,
     css: `
       @media print {

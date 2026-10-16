@@ -145,6 +145,30 @@ describe('exportDocument domain logic', () => {
         '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">'
       );
     });
+
+    it('generates HTML with dir="rtl" for Arabic or RTL documents', () => {
+      const html = exportStandaloneHtml({
+        title: 'صفحة عربية',
+        lang: 'ar',
+        dir: 'rtl',
+        bodyHtml: '<section><h1>مرحباً بكم</h1></section>',
+        css: 'h1 { color: #0284c7; }',
+      });
+
+      expect(html).toContain('<html lang="ar" dir="rtl">');
+      expect(html).toContain('مرحباً بكم');
+    });
+
+    it('automatically generates dir="rtl" and lang="ar" when Arabic content is present', () => {
+      const html = exportStandaloneHtml({
+        title: 'صفحة منتج',
+        bodyHtml: '<div><h1>عرض خاص</h1></div>',
+        css: '',
+      });
+
+      expect(html).toContain('<html lang="ar" dir="rtl">');
+      expect(html).toContain('عرض خاص');
+    });
   });
 
   describe('downloadHtmlFile (T-0504, AC-EXPORT-001)', () => {

@@ -46,13 +46,16 @@ describe('ImportModal Component (Epic 3)', () => {
       </EditorContext.Provider>
     );
 
-  it('renders modal dialog when isImportModalOpen is true', () => {
+  it('renders modal dialog when isImportModalOpen is true with Upload File as primary default tab', () => {
     renderWithContext();
 
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Import HTML Document')).toBeInTheDocument();
-    expect(screen.getByTestId('tab-paste')).toBeInTheDocument();
-    expect(screen.getByTestId('tab-upload')).toBeInTheDocument();
+    const tabs = screen.getAllByRole('tab');
+    expect(tabs[0]).toHaveAttribute('data-testid', 'tab-upload');
+    expect(tabs[0]).toHaveAttribute('aria-selected', 'true');
+    expect(tabs[1]).toHaveAttribute('data-testid', 'tab-paste');
+    expect(tabs[1]).toHaveAttribute('aria-selected', 'false');
   });
 
   it('does not render modal when isImportModalOpen is false', () => {

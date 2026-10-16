@@ -27,6 +27,7 @@ export interface UiState {
   canUndo: boolean;
   canRedo: boolean;
   selectedComponent: SelectedComponentInfo | null;
+  currentDirection: 'rtl' | 'ltr';
 
   // Project Identity State
   currentProjectId: string;
@@ -35,6 +36,7 @@ export interface UiState {
   currentSourceMeta: ProjectSourceMeta;
 
   setDevice: (device: ViewportDevice) => void;
+  setCurrentDirection: (dir: 'rtl' | 'ltr') => void;
   setActiveLeftPanel: (panel: ActiveLeftPanel) => void;
   setActiveRightPanel: (panel: ActiveRightPanel) => void;
   setImportModalOpen: (open: boolean) => void;
@@ -79,6 +81,7 @@ export const useUiStore = create<UiState>((set) => {
     canUndo: false,
     canRedo: false,
     selectedComponent: null,
+    currentDirection: 'rtl',
 
     currentProjectId: initialId,
     currentProjectName: 'Untitled Project',
@@ -86,6 +89,15 @@ export const useUiStore = create<UiState>((set) => {
     currentSourceMeta: createDefaultSourceMeta('blank'),
 
     setDevice: (device) => set({ currentDevice: device }),
+    setCurrentDirection: (dir) =>
+      set((state) => ({
+        currentDirection: dir,
+        isDirty: true,
+        currentSourceMeta: {
+          ...state.currentSourceMeta,
+          importedDir: dir,
+        },
+      })),
     setActiveLeftPanel: (panel) => set({ activeLeftPanel: panel }),
     setActiveRightPanel: (panel) => set({ activeRightPanel: panel }),
     setImportModalOpen: (open) => set({ isImportModalOpen: open }),
@@ -117,6 +129,7 @@ export const useUiStore = create<UiState>((set) => {
         currentProjectName: meta.name,
         currentProjectCreatedAt: meta.createdAt || state.currentProjectCreatedAt,
         currentSourceMeta: meta.sourceMeta || state.currentSourceMeta,
+        currentDirection: meta.sourceMeta?.importedDir === 'ltr' ? 'ltr' : 'rtl',
         isDirty: false,
         saveStatus: 'saved',
         saveErrorMessage: null,
@@ -128,6 +141,7 @@ export const useUiStore = create<UiState>((set) => {
         currentProjectName: name.trim() || 'Untitled Project',
         currentProjectCreatedAt: now,
         currentSourceMeta: createDefaultSourceMeta('blank'),
+        currentDirection: 'rtl',
         isDirty: false,
         saveStatus: 'idle',
         saveErrorMessage: null,

@@ -280,3 +280,155 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* Direction Selector */
+.import-direction-section {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.import-section-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.import-direction-radios {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.direction-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.direction-option:hover {
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.direction-option.active {
+  color: #38bdf8;
+  background: rgba(14, 165, 233, 0.12);
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+/* Detected Fonts Section */
+.detected-fonts-section {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detected-fonts-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detected-fonts-hint {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.font-success-banner {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.detected-fonts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detected-font-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.detected-font-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detected-font-name {
+  font-size: 0.85rem;
+  color: #f8fafc;
+}
+
+.detected-font-type {
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+.font-badge {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.font-badge.google {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.font-badge.success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.font-upload-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.font-upload-label:hover {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #fbbf24;
+}

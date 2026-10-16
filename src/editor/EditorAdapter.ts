@@ -11,11 +11,16 @@ import { VIEWPORT_DEVICES } from './devices';
 import { DEFAULT_BLOCKS } from './blocks';
 import { DEFAULT_BLANK_HTML, DEFAULT_CANVAS_CSS } from './editorConfig';
 import type { SanitizedDocument } from '../domain/document/types';
+import { detectDocumentFonts, injectFontStylesheet } from '../domain/document/fontDetector';
+
+const EXPANDED_GOOGLE_FONTS_URL =
+  'https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Almarai:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700&family=Changa:wght@400;600;700&family=El+Messiri:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;600;700&family=Readex+Pro:wght@400;600;700&family=Rubik:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap';
 
 export class EditorAdapter implements IEditorAdapter {
   private editor: Editor | null = null;
   private isInit = false;
   private currentDevice: EditorDevice = 'desktop';
+  private currentDirection: 'rtl' | 'ltr' = 'rtl';
   private eventListeners: Map<EditorEventType, Set<() => void>> = new Map([
     ['selection:change', new Set()],
     ['history:change', new Set()],
@@ -54,9 +59,7 @@ export class EditorAdapter implements IEditorAdapter {
             blocks: DEFAULT_BLOCKS,
           },
       canvas: {
-        styles: [
-          'https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Cairo:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap',
-        ],
+        styles: [EXPANDED_GOOGLE_FONTS_URL],
       },
       headless: options.headless ?? isJsdom,
     };
@@ -164,6 +167,46 @@ export class EditorAdapter implements IEditorAdapter {
     return this.currentDevice;
   }
 
+  setDirection(dir: 'rtl' | 'ltr'): void {
+    this.currentDirection = dir;
+    const isRtl = dir === 'rtl';
+
+    const wrapper = this.editor?.getWrapper();
+    if (wrapper) {
+      wrapper.addAttributes({ dir });
+      wrapper.addStyle({ direction: dir });
+    }
+
+    try {
+      const canvas = (
+        this.editor as unknown as {
+          Canvas?: { getDocument?: () => Document; getBody?: () => HTMLElement };
+        }
+      ).Canvas;
+      const canvasDoc = canvas?.getDocument?.();
+      if (canvasDoc) {
+        if (canvasDoc.documentElement) {
+          canvasDoc.documentElement.setAttribute('dir', dir);
+          if (isRtl && !canvasDoc.documentElement.getAttribute('lang')) {
+            canvasDoc.documentElement.setAttribute('lang', 'ar');
+          }
+        }
+        if (canvasDoc.body) {
+          canvasDoc.body.setAttribute('dir', dir);
+          canvasDoc.body.style.direction = dir;
+        }
+      }
+    } catch {
+      // safe fallback
+    }
+
+    this.emit('update');
+  }
+
+  getDirection(): 'rtl' | 'ltr' {
+    return this.currentDirection;
+  }
+
   getHtml(): string {
     return this.editor?.getHtml() || '';
   }
@@ -231,11 +274,29 @@ export class EditorAdapter implements IEditorAdapter {
       return;
     }
     this.clearSelection();
+
+    const hasArabic =
+      doc.lang === 'ar' ||
+      /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.bodyHtml || '') ||
+      /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.css || '');
+
+    // Priority for Arabic RTL: if explicitly LTR, respect LTR; otherwise if Arabic or explicit RTL, set RTL
+    const targetDir: 'rtl' | 'ltr' = doc.dir === 'ltr' ? 'ltr' : doc.dir === 'rtl' || hasArabic ? 'rtl' : 'ltr';
+    this.currentDirection = targetDir;
+    const isRtl = targetDir === 'rtl';
+
+    // Natural RTL without forcing !important on text-align or inner layouts
+    const rtlCanvasCss = isRtl
+      ? `\nhtml[dir="rtl"], body[dir="rtl"] {\n  direction: rtl;\n}\n`
+      : '';
+
     const fullHtml =
       doc.css && doc.css.trim()
-        ? `<style>${DEFAULT_CANVAS_CSS}\n${doc.css}</style>${doc.bodyHtml || ''}`
-        : `<style>${DEFAULT_CANVAS_CSS}</style>${doc.bodyHtml || ''}`;
+        ? `<style>${DEFAULT_CANVAS_CSS}${rtlCanvasCss}\n${doc.css}</style>${doc.bodyHtml || ''}`
+        : `<style>${DEFAULT_CANVAS_CSS}${rtlCanvasCss}</style>${doc.bodyHtml || ''}`;
     this.editor.setComponents(fullHtml);
+
+    this.setDirection(targetDir);
 
     const wrapper = this.editor.getWrapper();
     if (wrapper) {
@@ -245,6 +306,52 @@ export class EditorAdapter implements IEditorAdapter {
         draggable: false,
         badgable: false,
       });
+      wrapper.addAttributes({ dir: targetDir });
+      wrapper.addStyle({ direction: targetDir });
+    }
+
+    try {
+      const canvas = (
+        this.editor as unknown as {
+          Canvas?: { getDocument?: () => Document; getBody?: () => HTMLElement };
+        }
+      ).Canvas;
+      const canvasDoc = canvas?.getDocument?.();
+      if (canvasDoc) {
+        if (canvasDoc.documentElement) {
+          canvasDoc.documentElement.setAttribute('dir', targetDir);
+          if (doc.lang) {
+            canvasDoc.documentElement.setAttribute('lang', doc.lang);
+          } else if (isRtl) {
+            canvasDoc.documentElement.setAttribute('lang', 'ar');
+          }
+        }
+        if (canvasDoc.body) {
+          canvasDoc.body.setAttribute('dir', targetDir);
+          canvasDoc.body.style.direction = targetDir;
+        }
+
+        // Auto-inject external Google font stylesheets into canvas iframe
+        for (const sheetUrl of doc.externalStylesheets || []) {
+          if (sheetUrl.includes('fonts.googleapis.com')) {
+            injectFontStylesheet(sheetUrl, canvasDoc);
+          }
+        }
+
+        // Auto-detect fonts in doc and inject any known Google Fonts
+        const detected = detectDocumentFonts(
+          doc.bodyHtml || '',
+          doc.css || '',
+          doc.externalStylesheets || []
+        );
+        for (const font of detected) {
+          if (font.googleFontsUrl) {
+            injectFontStylesheet(font.googleFontsUrl, canvasDoc);
+          }
+        }
+      }
+    } catch {
+      // safe fallback
     }
 
     if (this.editor.UndoManager) {

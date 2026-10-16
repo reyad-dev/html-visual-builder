@@ -109,6 +109,7 @@ export function importDocument(
   return {
     title: parsed.title,
     lang: parsed.lang,
+    dir: parsed.dir,
     meta: parsed.meta,
     bodyHtml: finalBodyHtml,
     html: finalBodyHtml,

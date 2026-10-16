@@ -32,10 +32,23 @@ export function loadSanitizedDocumentIntoAdapter(
   }
 
   adapter.clearSelection();
+
+  const hasArabic =
+    doc.lang === 'ar' ||
+    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.bodyHtml || '') ||
+    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.css || '');
+
+  const targetDir: 'rtl' | 'ltr' = doc.dir === 'ltr' ? 'ltr' : doc.dir === 'rtl' || hasArabic ? 'rtl' : 'ltr';
+  const isRtl = targetDir === 'rtl';
+
+  const rtlCanvasCss = isRtl
+    ? `\nhtml[dir="rtl"], body[dir="rtl"] {\n  direction: rtl;\n}\n`
+    : '';
+
   ed.setComponents(doc.bodyHtml || '');
 
   // Reset and load styles
-  ed.addComponents(`<style>${DEFAULT_CANVAS_CSS}</style>`);
+  ed.addComponents(`<style>${DEFAULT_CANVAS_CSS}${rtlCanvasCss}</style>`);
   if (doc.css && doc.css.trim()) {
     ed.addComponents(`<style>${doc.css}</style>`);
   }
@@ -48,6 +61,8 @@ export function loadSanitizedDocumentIntoAdapter(
       draggable: false,
       badgable: false,
     });
+    wrapper.addAttributes?.({ dir: targetDir });
+    wrapper.addStyle?.({ direction: targetDir });
   }
 
   if (ed.UndoManager) {

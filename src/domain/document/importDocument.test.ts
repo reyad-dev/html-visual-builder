@@ -143,4 +143,37 @@ describe('Secure HTML Import Pipeline (Epic 3)', () => {
     expect(doc.bodyHtml).toContain('src="https://example.com/logo.png"');
     expect(doc.bodyHtml).toContain('src="data:image/png;base64,');
   });
+
+  it('detects RTL direction attribute and Arabic text content with RTL priority', () => {
+    const arabicHtml = `
+      <!DOCTYPE html>
+      <html lang="ar" dir="rtl">
+        <head><title>صفحة عربية</title></head>
+        <body>
+          <section>
+            <h1>أهلاً بك في المحرر المرئي</h1>
+            <p>تصميم متجاوب وسهل الاستخدام باللغة العربية.</p>
+          </section>
+        </body>
+      </html>
+    `;
+    const doc = importDocument(arabicHtml);
+    expect(doc.dir).toBe('rtl');
+    expect(doc.lang).toBe('ar');
+    expect(doc.title).toBe('صفحة عربية');
+    expect(doc.bodyHtml).toContain('أهلاً بك في المحرر المرئي');
+  });
+
+  it('automatically grants RTL priority when Arabic characters exist even without explicit dir="rtl"', () => {
+    const autoArabicHtml = `
+      <div>
+        <h2>عنوان رئيسي بالعربية</h2>
+        <p>نص تجريبي للتأكد من دعم الاتجاه من اليمين لليسار.</p>
+      </div>
+    `;
+    const doc = importDocument(autoArabicHtml);
+    expect(doc.dir).toBe('rtl');
+    expect(doc.lang).toBe('ar');
+    expect(doc.bodyHtml).toContain('عنوان رئيسي بالعربية');
+  });
 });

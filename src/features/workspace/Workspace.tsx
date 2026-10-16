@@ -30,6 +30,8 @@ export function Workspace(): ReactElement {
     currentProjectName,
     currentProjectCreatedAt,
     currentSourceMeta,
+    currentDirection,
+    setCurrentDirection,
     setDevice,
     setActiveLeftPanel,
     setImportModalOpen,
@@ -155,8 +157,16 @@ export function Workspace(): ReactElement {
       return;
     }
     const snapshot = adapter.getExportSnapshot();
+    const isArabicOrRtl =
+      currentSourceMeta.importedDir === 'rtl' ||
+      currentSourceMeta.importedLang?.startsWith('ar') ||
+      /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(snapshot.bodyHtml) ||
+      /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(snapshot.css);
+
     printDocument({
       title: currentProjectName || 'Exported Document',
+      lang: currentSourceMeta.importedLang || (isArabicOrRtl ? 'ar' : 'en'),
+      dir: currentSourceMeta.importedDir || (isArabicOrRtl ? 'rtl' : undefined),
       bodyHtml: snapshot.bodyHtml,
       css: snapshot.css,
       externalStylesheets: currentSourceMeta.externalStylesheets,
@@ -231,6 +241,12 @@ export function Workspace(): ReactElement {
 
   const handleDeviceChange = (device: ViewportDevice): void => {
     setDevice(device);
+  };
+
+  const handleToggleDirection = (): void => {
+    const nextDir = currentDirection === 'rtl' ? 'ltr' : 'rtl';
+    setCurrentDirection(nextDir);
+    adapter?.setDirection?.(nextDir);
   };
 
   return (
@@ -338,6 +354,20 @@ export function Workspace(): ReactElement {
             aria-pressed={currentDevice === 'mobile'}
           >
             Mobile
+          </button>
+          <button
+            type="button"
+            className={`device-btn direction-toggle-btn ${currentDirection === 'rtl' ? 'rtl-active' : ''}`}
+            onClick={handleToggleDirection}
+            title={
+              currentDirection === 'rtl'
+                ? 'الاتجاه الحالي: عربي / من اليمين لليسار (RTL) - انقر للتحويل إلى LTR'
+                : 'Current Direction: Left-to-Right (LTR) - Click to switch to Arabic (RTL)'
+            }
+            aria-label={`Toggle document direction. Currently ${currentDirection.toUpperCase()}`}
+            data-testid="btn-direction-toggle"
+          >
+            ⇄ {currentDirection === 'rtl' ? 'RTL (عربي)' : 'LTR'}
           </button>
         </nav>
 

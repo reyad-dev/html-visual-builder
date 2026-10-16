@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-19.3-06b6d4?style=for-the-badge&logo=react)](https://react.dev/)
 [![GrapesJS](https://img.shields.io/badge/GrapesJS-0.23-6366f1?style=for-the-badge)](https://grapesjs.com/)
 [![Vite](https://img.shields.io/badge/Vite-6.3-9333ea?style=for-the-badge&logo=vite)](https://vitejs.dev/)
-[![Tests](https://img.shields.io/badge/Vitest-133%20Passed-10b981?style=for-the-badge&logo=vitest)](https://vitest.dev/)
+[![Tests](https://img.shields.io/badge/Vitest-144%20Passed-10b981?style=for-the-badge&logo=vitest)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 > 🌐 **Live Demo (جرّب المحرر أونلاين فوراً):**  
@@ -22,11 +22,20 @@
 - 🎯 **Intuitive Drag & Drop Canvas (محرر سحب وإفلات مرئي):**
   Drag sections, containers, multi-column grids, typography, buttons, media, and dividers directly onto the visual artboard with realtime snap and drop feedback.
 
+- 🌐 **First-Class Arabic RTL & Natural Flow (الأولوية الكاملة للغة العربية والـ RTL الطبيعي):**
+  Native, non-destructive RTL layout engine that preserves author column arrangements, flexbox rows, and custom alignments without reversing or mirroring your designs. Includes a one-click top toolbar switcher `[ ⇄ RTL (عربي) ]` / `[ ⇄ LTR ]` to toggle live canvas direction on the fly.
+
+- 🔤 **Intelligent Font Detection & Local Font Uploader (محرك التعرف على الخطوط وتحميل الخطوط محلياً):**
+  Automatically detects all fonts declared in imported HTML/CSS. Expanded pre-integrated Arabic Google Fonts (**Alexandria, Cairo, Tajawal, Almarai, Amiri, Changa, Noto Sans Arabic, Rubik, El Messiri, Readex Pro, IBM Plex Arabic**). For missing or proprietary fonts, upload local font files (`.woff2`, `.woff`, `.ttf`, `.otf`) directly; the engine automatically converts them to `@font-face` data URIs, injects them into the canvas, and preserves them in your exported files.
+
+- 🎛️ **Card-Based Style Inspector (مفتش الخصائص وتصميم البطاقات المريح):**
+  Enhanced accordion panels with 44px comfortable touch targets, zero vertical font clipping, clear spacing, and generous scroll room across all 7 styling sectors (Layout, Spacing, Size, Typography, Background, Border, Effects).
+
+- 📥 **Streamlined HTML File Import (استيراد مباشر لملفات HTML):**
+  Dedicated dropzone prioritized as the primary import tab supporting `.html` and `.htm` files up to 5 MB, with real-time font detection and custom direction controls.
+
 - 🖨️ **Print & Export to PDF (طباعة وتصدير عالي الدقة كـ PDF):**
   Export your designs directly to standalone vector PDF documents using native `@media print` rules and browser print dialogs (`Ctrl + P`), preserving exact layout fidelity, background colors, and web fonts.
-
-- 🌐 **First-Class Arabic Typography (دعم الخطوط العربية الحديثة):**
-  Native integration of Google Fonts: **Alexandria**, **Cairo**, and **Tajawal** alongside Inter and JetBrains Mono. Built-in bi-directional (RTL/LTR) support ensures Arabic text renders with supreme typographic beauty.
 
 - ⚡ **Zero-Dependency Standalone Export (تصدير كود HTML5 & CSS نظيف ومستقل):**
   Generate deterministic, production-ready HTML5 files with scoped CSS. Completely self-contained, offline-compatible, and free of vendor lock-in.
@@ -36,9 +45,6 @@
 
 - 📱 **Multi-Device Responsive Previews (معاينة متعددة الأجهزة):**
   One-click responsive toggles between **Desktop**, **Tablet (768px)**, and **Mobile (375px)** viewports with synchronized canvas scaling.
-
-- 🎛️ **Comprehensive CSS Inspector (مفتش الخصائص والأنماط):**
-  Visual controls for Display, Flexbox, Grid, Typography, Colors, Spacing (Margin & Padding), Dimensions, Borders, and Drop Shadows.
 
 - 💾 **Local Offline Persistence (حفظ تلقائي وإدارة المشاريع):**
   IndexedDB and LocalStorage persistence engine with automatic state restoration, project duplicate/rename/delete capabilities, and dirty state tracking.
@@ -66,8 +72,8 @@
 - **State Management:** [Zustand 5](https://github.com/pmndrs/zustand)
 - **Security & Sanitization:** [DOMPurify 3.4](https://github.com/cure53/DOMPurify)
 - **Build Tool:** [Vite 6](https://vitejs.dev/)
-- **Testing Suite:** [Vitest 5](https://vitest.dev/) (133 unit & integration tests)
-- **Typography:** Alexandria, Cairo, Tajawal, Inter, JetBrains Mono
+- **Testing Suite:** [Vitest 5](https://vitest.dev/) (144 unit & integration tests across 19 suites)
+- **Typography:** Alexandria, Cairo, Tajawal, Almarai, Amiri, Changa, Noto Sans Arabic, Rubik, El Messiri, Readex Pro, IBM Plex Arabic, Inter, JetBrains Mono
 
 ---
 
@@ -112,7 +118,7 @@ Open your browser at `http://localhost:5173` to start designing!
 
 ## 🧪 Testing & Verification | الاختبارات والتحقق
 
-The project maintains 100% test pass rate across 18 test suites covering core editor logic, DOM sanitization, export generators, persistence, and UI components.
+The project maintains 100% test pass rate across 19 test suites covering core editor logic, DOM sanitization, export generators, persistence, and UI components.
 
 ```bash
 # Run unit and integration tests
