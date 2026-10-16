@@ -10,6 +10,7 @@ import {
 import { VIEWPORT_DEVICES } from './devices';
 import { DEFAULT_BLOCKS } from './blocks';
 import { DEFAULT_BLANK_HTML, DEFAULT_CANVAS_CSS } from './editorConfig';
+import type { SanitizedDocument } from '../domain/document/types';
 
 export class EditorAdapter implements IEditorAdapter {
   private editor: Editor | null = null;
@@ -38,7 +39,7 @@ export class EditorAdapter implements IEditorAdapter {
       container: options.container,
       fromElement: false,
       height: '100%',
-      width: 'auto',
+      width: '100%',
       panels: { defaults: [] },
       storageManager: false,
       deviceManager: {
@@ -178,6 +179,12 @@ export class EditorAdapter implements IEditorAdapter {
     }
     this.editor.setComponents(`<style>${DEFAULT_CANVAS_CSS}</style>${DEFAULT_BLANK_HTML}`);
     this.editor.select(undefined);
+    try {
+      this.editor.refresh();
+      (this.editor as unknown as { Canvas?: { refresh?: () => void } }).Canvas?.refresh?.();
+    } catch {
+      // safe fallback
+    }
     this.emit('update');
     this.emit('history:change');
   }
@@ -191,8 +198,51 @@ export class EditorAdapter implements IEditorAdapter {
       : `<style>${DEFAULT_CANVAS_CSS}</style>${html}`;
     this.editor.setComponents(fullHtml);
     this.editor.select(undefined);
+    try {
+      this.editor.refresh();
+      (this.editor as unknown as { Canvas?: { refresh?: () => void } }).Canvas?.refresh?.();
+    } catch {
+      // safe fallback
+    }
     this.emit('update');
     this.emit('history:change');
+  }
+
+  loadSanitizedDocument(doc: SanitizedDocument): void {
+    if (!this.editor) {
+      return;
+    }
+    this.clearSelection();
+    const fullHtml =
+      doc.css && doc.css.trim()
+        ? `<style>${DEFAULT_CANVAS_CSS}\n${doc.css}</style>${doc.bodyHtml || ''}`
+        : `<style>${DEFAULT_CANVAS_CSS}</style>${doc.bodyHtml || ''}`;
+    this.editor.setComponents(fullHtml);
+
+    const wrapper = this.editor.getWrapper();
+    if (wrapper) {
+      wrapper.set({
+        removable: false,
+        copyable: false,
+        draggable: false,
+        badgable: false,
+      });
+    }
+
+    if (this.editor.UndoManager) {
+      this.editor.UndoManager.clear();
+    }
+
+    try {
+      this.editor.refresh();
+      (this.editor as unknown as { Canvas?: { refresh?: () => void } }).Canvas?.refresh?.();
+    } catch {
+      // safe fallback
+    }
+
+    this.emit('update');
+    this.emit('history:change');
+    this.emit('selection:change');
   }
 
   undo(): void {

@@ -373,41 +373,65 @@
   height: 100% !important;
 }
 
-.editor-canvas-mount .gjs-cv-canvas__frames {
+.editor-canvas-mount .gjs-cv-canvas__frames,
+.editor-canvas-mount .gjs-frames {
   width: 100% !important;
+  min-width: 100% !important;
   height: 100% !important;
+  min-height: 100% !important;
   display: flex !important;
   justify-content: center !important;
   align-items: stretch !important;
   margin: 0 auto !important;
   left: 0 !important;
   right: 0 !important;
+  position: relative !important;
 }
 
 .editor-canvas-mount .gjs-frame-wrapper {
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
   margin: 0 auto !important;
   left: auto !important;
   right: auto !important;
   position: relative !important;
   display: flex !important;
   justify-content: center !important;
+  align-items: stretch !important;
+  flex: 1 1 100% !important;
   box-shadow: none !important;
 }
 
+.editor-canvas-mount .gjs-frame {
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  border: none !important;
+  display: block !important;
+  background-color: #ffffff !important;
+}
+
+.canvas-device-frame.desktop .gjs-frames,
 .canvas-device-frame.desktop .gjs-frame-wrapper,
 .canvas-device-frame.desktop .gjs-frame {
   width: 100% !important;
+  min-width: 100% !important;
 }
 
 .canvas-device-frame.tablet .gjs-frame-wrapper,
 .canvas-device-frame.tablet .gjs-frame {
   width: 768px !important;
+  min-width: 768px !important;
   max-width: 100% !important;
 }
 
 .canvas-device-frame.mobile .gjs-frame-wrapper,
 .canvas-device-frame.mobile .gjs-frame {
   width: 375px !important;
+  min-width: 375px !important;
   max-width: 100% !important;
 }
 
