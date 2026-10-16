@@ -13,7 +13,15 @@ export const DEFAULT_BLANK_HTML = `
 `.trim();
 
 export const DEFAULT_CANVAS_CSS = `
-html, body {
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 #f1f5f9;
+}
+body {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -21,6 +29,7 @@ html, body {
   font-family: 'Alexandria', 'Cairo', 'Tajawal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  min-height: 100%;
 }
 html[dir="rtl"], body[dir="rtl"] {
   direction: rtl;
@@ -28,11 +37,30 @@ html[dir="rtl"], body[dir="rtl"] {
 * {
   box-sizing: border-box;
 }
+table {
+  max-width: 100%;
+}
 .builder-section {
   position: relative;
 }
 .builder-container {
   box-sizing: border-box;
+}
+/* High-contrast visible scrollbars inside the canvas iframe */
+::-webkit-scrollbar {
+  width: 11px !important;
+  height: 11px !important;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9 !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8 !important;
+  border-radius: 6px !important;
+  border: 2px solid #f1f5f9 !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b !important;
 }
 @media print {
   body {
@@ -41,3 +69,4 @@ html[dir="rtl"], body[dir="rtl"] {
   }
 }
 `;
+

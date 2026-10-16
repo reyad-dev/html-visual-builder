@@ -173,6 +173,82 @@ export async function copyToClipboard(text: string): Promise<boolean> {
 }
 
 /**
+ * Generates print and A4 simulation CSS ensuring content harmonizes cleanly with A4 pages
+ * without being cut off or split awkwardly across page breaks.
+ */
+export function generateA4PrintCss(options?: {
+  orientation?: 'portrait' | 'landscape' | undefined;
+  pageMargin?: string | undefined;
+}): string {
+  const orientation = options?.orientation === 'landscape' ? 'landscape' : 'portrait';
+  const pageMargin = options?.pageMargin || '12mm 15mm';
+
+  return `
+    @page {
+      size: A4 ${orientation};
+      margin: ${pageMargin};
+    }
+    *, *::before, *::after {
+      box-sizing: border-box !important;
+    }
+    html, body {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #ffffff !important;
+      color: #0f172a !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      overflow: visible !important;
+    }
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      table-layout: auto !important;
+      border-collapse: collapse !important;
+      page-break-inside: auto !important;
+      break-inside: auto !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+    thead {
+      display: table-header-group !important;
+    }
+    tfoot {
+      display: table-footer-group !important;
+    }
+    tr, td, th {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      word-break: break-word !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+    }
+    img, figure, svg, canvas {
+      max-width: 100% !important;
+      height: auto !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+    .builder-section, .builder-container {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      page-break-inside: auto !important;
+      break-inside: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    p, li, blockquote {
+      orphans: 3 !important;
+      widows: 3 !important;
+    }
+  `;
+}
+
+/**
  * Triggers a high-fidelity print / PDF export dialog for the given HTML document.
  * Creates an isolated iframe, loads Google Fonts & styles, and triggers window.print().
  */
@@ -183,12 +259,19 @@ export function printDocument(options: {
   bodyHtml: string;
   css: string;
   externalStylesheets?: string[] | undefined;
+  orientation?: 'portrait' | 'landscape' | undefined;
+  pageMargin?: string | undefined;
 }): void {
   if (typeof document === 'undefined' || typeof window === 'undefined') {
     return;
   }
 
   const title = options.title || 'Document';
+  const a4Css = generateA4PrintCss({
+    orientation: options.orientation,
+    pageMargin: options.pageMargin,
+  });
+
   const fullHtml = exportStandaloneHtml({
     title,
     lang: options.lang,
@@ -196,14 +279,7 @@ export function printDocument(options: {
     bodyHtml: options.bodyHtml,
     css: `
       @media print {
-        @page {
-          margin: 1.5cm;
-          size: auto;
-        }
-        body {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
+        ${a4Css}
       }
       ${options.css || ''}
     `,

@@ -265,4 +265,53 @@ describe('ExportModal Component (Epic 5: T-0503 to T-0507)', () => {
       })
     );
   });
+
+  it('renders A4 simulation sheet preview with orientation and anti-cutoff badge', () => {
+    render(
+      <EditorContext.Provider
+        value={{ adapter: mockAdapter as IEditorAdapter, setAdapter: vi.fn() }}
+      >
+        <ExportModal />
+      </EditorContext.Provider>
+    );
+
+    // Default tab is PDF simulation
+    expect(screen.getByTestId('a4-simulator-section')).toBeInTheDocument();
+    expect(screen.getByTestId('a4-sheet-preview')).toBeInTheDocument();
+    expect(screen.getByText(/anti-cutoff & table fit active/i)).toBeInTheDocument();
+
+    // Toggle orientation to landscape
+    fireEvent.click(screen.getByRole('button', { name: /landscape/i }));
+    const sheet = screen.getByTestId('a4-sheet-preview');
+    expect(sheet.className).toContain('landscape');
+  });
+
+  it('passes selected landscape orientation and margin to printDocument', () => {
+    const printSpy = vi.spyOn(exportDomain, 'printDocument').mockImplementation(() => {});
+
+    render(
+      <EditorContext.Provider
+        value={{ adapter: mockAdapter as IEditorAdapter, setAdapter: vi.fn() }}
+      >
+        <ExportModal />
+      </EditorContext.Provider>
+    );
+
+    // Switch to landscape
+    fireEvent.click(screen.getByRole('button', { name: /landscape/i }));
+
+    // Change margin
+    const select = screen.getByLabelText(/A4 Page Margins/i);
+    fireEvent.change(select, { target: { value: '8mm 10mm' } });
+
+    // Click print
+    fireEvent.click(screen.getByTestId('btn-export-pdf'));
+
+    expect(printSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        orientation: 'landscape',
+        pageMargin: '8mm 10mm',
+      })
+    );
+  });
 });

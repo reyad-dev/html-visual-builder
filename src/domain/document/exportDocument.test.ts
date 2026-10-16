@@ -6,6 +6,7 @@ import {
   downloadHtmlFile,
   copyToClipboard,
   printDocument,
+  generateA4PrintCss,
 } from './exportDocument';
 
 describe('exportDocument domain logic', () => {
@@ -258,6 +259,22 @@ describe('exportDocument domain logic', () => {
 
       expect(appendChildSpy).toHaveBeenCalled();
       vi.useRealTimers();
+    });
+  });
+
+  describe('generateA4PrintCss', () => {
+    it('generates standard portrait A4 styles with anti-cut table and row rules', () => {
+      const css = generateA4PrintCss();
+      expect(css).toContain('size: A4 portrait;');
+      expect(css).toContain('table-layout: auto !important;');
+      expect(css).toContain('break-inside: avoid !important;');
+      expect(css).toContain('print-color-adjust: exact !important;');
+    });
+
+    it('generates landscape A4 styles with custom margin when requested', () => {
+      const css = generateA4PrintCss({ orientation: 'landscape', pageMargin: '5mm 10mm' });
+      expect(css).toContain('size: A4 landscape;');
+      expect(css).toContain('margin: 5mm 10mm;');
     });
   });
 });

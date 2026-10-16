@@ -509,6 +509,25 @@ export function Workspace(): ReactElement {
               className="panel-body blocks-panel"
               data-testid="blocks-container"
               style={{ display: activeLeftPanel === 'blocks' ? 'block' : 'none' }}
+              onClick={(e) => {
+                const target = e.target as HTMLElement | null;
+                const title = target?.closest('.gjs-title');
+                if (title) {
+                  const category = title.closest('.gjs-block-category');
+                  if (category) {
+                    setTimeout(() => {
+                      const blocksC = category.querySelector('.gjs-blocks-c') as HTMLElement | null;
+                      if (blocksC && (blocksC.style.display === 'none' || !category.classList.contains('gjs-open'))) {
+                        category.classList.remove('gjs-open');
+                        blocksC.style.display = 'none';
+                      } else if (blocksC) {
+                        category.classList.add('gjs-open');
+                        blocksC.style.display = '';
+                      }
+                    }, 20);
+                  }
+                }
+              }}
             />
             <div
               id="layers-panel-mount"

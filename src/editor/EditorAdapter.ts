@@ -61,7 +61,15 @@ export class EditorAdapter implements IEditorAdapter {
             blocks: DEFAULT_BLOCKS
           },
       canvas: {
-        styles: [EXPANDED_GOOGLE_FONTS_URL]
+        styles: [EXPANDED_GOOGLE_FONTS_URL],
+        frameStyle: `
+          body { background-color: #fff; }
+          html, body { overflow-x: auto; overflow-y: auto; }
+          ::-webkit-scrollbar { width: 11px; height: 11px; }
+          ::-webkit-scrollbar-track { background: #f1f5f9; }
+          ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 6px; border: 2px solid #f1f5f9; }
+          ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+        `
       },
       headless: options.headless ?? isJsdom,
       parser: {
