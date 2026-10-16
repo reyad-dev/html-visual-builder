@@ -101,6 +101,7 @@ export function Workspace(): ReactElement {
 
     const unsubUpdate = editorAdapter.on('update', () => {
       setIsDirty(true);
+      setSelectedComponent(editorAdapter.getSelectedComponent());
     });
 
     return () => {

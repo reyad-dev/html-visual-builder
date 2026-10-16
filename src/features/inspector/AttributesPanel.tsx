@@ -1,4 +1,4 @@
-import { useState, type ReactElement, type ChangeEvent, type FormEvent } from 'react';
+import { useState, useEffect, type ReactElement, type ChangeEvent, type FormEvent } from 'react';
 import { type IEditorAdapter, type SelectedComponentInfo } from '../../editor/types';
 import { validateUrl, isDangerousAttribute } from '../../domain/security/urlPolicy';
 import {
@@ -18,7 +18,27 @@ export function AttributesPanel({
   adapter,
   selectedComponent,
 }: AttributesPanelProps): ReactElement {
-  const currentAttributes = getSelectedAttributes(adapter);
+  const [currentAttributes, setCurrentAttributes] = useState<Record<string, string>>(() =>
+    getSelectedAttributes(adapter)
+  );
+
+  useEffect(() => {
+    const syncAttrs = (): void => {
+      setCurrentAttributes(getSelectedAttributes(adapter));
+    };
+
+    syncAttrs();
+
+    const unsubUpdate = adapter.on?.('update', syncAttrs);
+    const unsubSelection = adapter.on?.('selection:change', syncAttrs);
+    const unsubHistory = adapter.on?.('history:change', syncAttrs);
+
+    return () => {
+      unsubUpdate?.();
+      unsubSelection?.();
+      unsubHistory?.();
+    };
+  }, [adapter, selectedComponent.id]);
 
   // Local state for URL validation errors
   const [urlErrors, setUrlErrors] = useState<Record<string, string>>({});
@@ -71,7 +91,10 @@ export function AttributesPanel({
       }
     }
 
-    setSelectedAttribute(adapter, name, value);
+    const ok = setSelectedAttribute(adapter, name, value);
+    if (ok) {
+      setCurrentAttributes((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleAddCustomAttribute = (e: FormEvent): void => {
@@ -95,6 +118,7 @@ export function AttributesPanel({
 
     const ok = setSelectedAttribute(adapter, name, val);
     if (ok) {
+      setCurrentAttributes((prev) => ({ ...prev, [name]: val }));
       setNewAttrName('');
       setNewAttrValue('');
     } else {
@@ -103,7 +127,14 @@ export function AttributesPanel({
   };
 
   const handleRemoveAttribute = (name: string): void => {
-    removeSelectedAttribute(adapter, name);
+    const ok = removeSelectedAttribute(adapter, name);
+    if (ok) {
+      setCurrentAttributes((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
+    }
   };
 
   const handleAddClass = (e: FormEvent): void => {

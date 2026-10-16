@@ -1,13 +1,137 @@
-import { useState, type ReactElement, type ChangeEvent } from 'react';
+import { useState, useEffect, type ReactElement, type ChangeEvent } from 'react';
 import { STYLE_SECTORS, type SectorPropertyConfig } from '../../editor/styleSectors';
 import { type IEditorAdapter } from '../../editor/types';
 import { getSelectedStyles, setSelectedStyles } from './inspectorBridge';
 
-interface StyleSectorsProps {
-  adapter: IEditorAdapter;
+export function toValidHexColor(raw?: string): string | null {
+  if (!raw) return null;
+  const s = raw.trim().toLowerCase();
+
+  // 6-digit hex (#rrggbb)
+  if (/^#[0-9a-f]{6}$/.test(s)) {
+    return s;
+  }
+
+  // 3-digit hex (#rgb -> #rrggbb)
+  if (/^#[0-9a-f]{3}$/.test(s)) {
+    return `#${s[1]}${s[1]}${s[2]}${s[2]}${s[3]}${s[3]}`;
+  }
+
+  // 8-digit hex (#rrggbbaa -> #rrggbb)
+  if (/^#[0-9a-f]{8}$/.test(s)) {
+    return s.slice(0, 7);
+  }
+
+  // rgb(r, g, b) or rgba(r, g, b, a)
+  const rgbMatch = s.match(/^rgba?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+  if (
+    rgbMatch &&
+    rgbMatch[1] !== undefined &&
+    rgbMatch[2] !== undefined &&
+    rgbMatch[3] !== undefined
+  ) {
+    const r = Math.min(255, Math.max(0, parseInt(rgbMatch[1], 10)))
+      .toString(16)
+      .padStart(2, '0');
+    const g = Math.min(255, Math.max(0, parseInt(rgbMatch[2], 10)))
+      .toString(16)
+      .padStart(2, '0');
+    const b = Math.min(255, Math.max(0, parseInt(rgbMatch[3], 10)))
+      .toString(16)
+      .padStart(2, '0');
+    return `#${r}${g}${b}`;
+  }
+
+  const namedColors: Record<string, string> = {
+    white: '#ffffff',
+    black: '#000000',
+    red: '#ff0000',
+    blue: '#0000ff',
+    green: '#008000',
+    yellow: '#ffff00',
+    gray: '#808080',
+    grey: '#808080',
+    transparent: '#000000',
+  };
+  if (namedColors[s]) {
+    return namedColors[s];
+  }
+
+  return null;
 }
 
-export function StyleSectors({ adapter }: StyleSectorsProps): ReactElement {
+export function resolveSelectValue(
+  prop: SectorPropertyConfig,
+  currentVal: string
+): string {
+  if (!currentVal || !prop.options || prop.options.length === 0) {
+    return '';
+  }
+
+  const raw = currentVal.trim();
+
+  // 1. Direct exact match
+  if (prop.options.some((opt) => opt.value === raw)) {
+    return raw;
+  }
+
+  // 2. Case-insensitive exact match
+  const lower = raw.toLowerCase();
+  const directMatch = prop.options.find(
+    (opt) => opt.value.toLowerCase() === lower
+  );
+  if (directMatch) {
+    return directMatch.value;
+  }
+
+  // 3. Special smart matching for font-family
+  if (prop.cssProp === 'font-family') {
+    const firstPart = raw.split(',')[0] ?? '';
+    const primaryFont = firstPart
+      .replace(/['"]/g, '')
+      .trim()
+      .toLowerCase();
+
+    if (primaryFont) {
+      const fontMatch = prop.options.find((opt) => {
+        const optFirstPart = opt.value.split(',')[0] ?? '';
+        const optPrimary = optFirstPart
+          .replace(/['"]/g, '')
+          .trim()
+          .toLowerCase();
+        if (optPrimary === primaryFont) return true;
+        if (opt.value.toLowerCase().includes(primaryFont)) return true;
+        if (opt.label.toLowerCase().includes(primaryFont)) return true;
+        return false;
+      });
+
+      if (fontMatch) {
+        return fontMatch.value;
+      }
+    }
+  }
+
+  // 4. Fallback for other selects: check trimmed value match without quotes
+  const unquoted = raw.replace(/['"]/g, '').toLowerCase();
+  const unquotedMatch = prop.options.find(
+    (opt) => opt.value.replace(/['"]/g, '').toLowerCase() === unquoted
+  );
+  if (unquotedMatch) {
+    return unquotedMatch.value;
+  }
+
+  return raw;
+}
+
+interface StyleSectorsProps {
+  adapter: IEditorAdapter;
+  selectedComponentId?: string;
+}
+
+export function StyleSectors({
+  adapter,
+  selectedComponentId,
+}: StyleSectorsProps): ReactElement {
   // Track open/collapsed state of each sector
   const [openSectors, setOpenSectors] = useState<Record<string, boolean>>(() => {
     const initial: Record<string, boolean> = {};
@@ -17,18 +141,40 @@ export function StyleSectors({ adapter }: StyleSectorsProps): ReactElement {
     return initial;
   });
 
+  // Reactive styles state synchronized with adapter
+  const [styles, setStyles] = useState<Record<string, string>>(() =>
+    getSelectedStyles(adapter)
+  );
+
+  useEffect(() => {
+    const syncStyles = (): void => {
+      setStyles(getSelectedStyles(adapter));
+    };
+
+    syncStyles();
+
+    const unsubUpdate = adapter.on?.('update', syncStyles);
+    const unsubSelection = adapter.on?.('selection:change', syncStyles);
+    const unsubHistory = adapter.on?.('history:change', syncStyles);
+
+    return () => {
+      unsubUpdate?.();
+      unsubSelection?.();
+      unsubHistory?.();
+    };
+  }, [adapter, selectedComponentId]);
+
   const toggleSector = (id: string): void => {
     setOpenSectors((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const currentStyles = getSelectedStyles(adapter);
-
   const handleStyleChange = (cssProp: string, value: string): void => {
+    setStyles((prev) => ({ ...prev, [cssProp]: value }));
     setSelectedStyles(adapter, { [cssProp]: value });
   };
 
   const renderPropertyControl = (prop: SectorPropertyConfig): ReactElement => {
-    const val = currentStyles[prop.cssProp] || '';
+    const val = styles[prop.cssProp] || '';
 
     // Numeric/unit parsing: e.g. "16px" -> num="16", unit="px"
     const parseUnitValue = (raw: string, defaultUnit = 'px') => {
@@ -40,11 +186,12 @@ export function StyleSectors({ adapter }: StyleSectorsProps): ReactElement {
     };
 
     if (prop.type === 'select') {
+      const selectVal = resolveSelectValue(prop, val);
       return (
         <select
           id={`style-${prop.id}`}
           className="inspector-select"
-          value={val}
+          value={selectVal}
           onChange={(e: ChangeEvent<HTMLSelectElement>) =>
             handleStyleChange(prop.cssProp, e.target.value)
           }
@@ -62,14 +209,18 @@ export function StyleSectors({ adapter }: StyleSectorsProps): ReactElement {
     }
 
     if (prop.type === 'color') {
-      const colorVal = val || '#000000';
+      const hexVal =
+        toValidHexColor(val) ||
+        toValidHexColor(prop.placeholder) ||
+        '#000000';
+
       return (
         <div className="inspector-color-wrapper">
           <input
             type="color"
             id={`style-${prop.id}-picker`}
             className="inspector-color-picker"
-            value={colorVal.startsWith('#') && colorVal.length === 7 ? colorVal : '#000000'}
+            value={hexVal}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               handleStyleChange(prop.cssProp, e.target.value)
             }

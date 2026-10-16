@@ -93,7 +93,7 @@ export function InspectorPanel(): ReactElement {
 
       {/* Main Tab Content */}
       {activeRightPanel === 'styles' ? (
-        <StyleSectors adapter={adapter} />
+        <StyleSectors adapter={adapter} selectedComponentId={selectedComponent.id} />
       ) : (
         <AttributesPanel adapter={adapter} selectedComponent={selectedComponent} />
       )}
