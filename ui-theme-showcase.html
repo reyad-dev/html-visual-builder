@@ -12,6 +12,33 @@
        CSS Variables per Theme (Based on ui-ux-pro-max intelligence)
        ========================================================================== */
 
+    /* 0. Theme Emerald Light: (الخيار المطبق حالياً: أخضر زمردي مع لايت مود احترافي) */
+    [data-theme="emerald-light"] {
+      --bg-base: #f1f5f9;
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f8fafc;
+      --bg-surface-hover: #f1f5f9;
+      --bg-glass: rgba(255, 255, 255, 0.92);
+      --border-subtle: #e2e8f0;
+      --border-medium: #cbd5e1;
+      --border-focus: #10b981;
+      --border-focus-ring: rgba(16, 185, 129, 0.25);
+      --border-accent: rgba(16, 185, 129, 0.35);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      --text-accent: #059669;
+      --accent-primary: #10b981;
+      --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+      --accent-glow: 0 4px 16px rgba(16, 185, 129, 0.22);
+      --badge-bg: #ecfdf5;
+      --badge-text: #059669;
+      --theme-name: "✨ الأخضر الزمردي لايت (Emerald Light - المطبق بالمشروع)";
+      --theme-desc: "اللايت مود الكامل المطبق الآن بالمشروع مع درجات اللون الأخضر الزمردي (Emerald/Mint)، ظلال ناعمة متعددة الطبقات وانميشن احترافي عند التفاعل.";
+    }
+
     /* 1. Theme A: Obsidian Electric Studio (Linear / Webflow / Figma Dark Pro) */
     [data-theme="obsidian-electric"] {
       --bg-base: #07090e;
@@ -763,7 +790,13 @@
       min-width: 90px;
     }
 
-    /* Modified Indicator Dot */
+    /* Modified Indicator Dot with micro-pop animation */
+    @keyframes dotPop {
+      0% { transform: scale(0.2); opacity: 0; }
+      65% { transform: scale(1.35); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
     .inspector-dot {
       width: 6px;
       height: 6px;
@@ -778,7 +811,7 @@
 
     .inspector-dot.active {
       opacity: 1;
-      transform: scale(1);
+      animation: dotPop 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .control-inputs-wrapper {
@@ -793,7 +826,7 @@
     .sim-select {
       width: 100%;
       height: 28px;
-      background: var(--bg-primary);
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: 6px;
       color: var(--text-primary);
@@ -801,6 +834,7 @@
       font-family: inherit;
       padding: 0 8px;
       outline: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
       transition: all 0.15s ease;
     }
 
@@ -808,6 +842,7 @@
     .sim-select:focus {
       border-color: var(--border-focus);
       box-shadow: 0 0 0 2px var(--border-focus-ring);
+      background: var(--bg-secondary);
     }
 
     .sim-color-row {
@@ -826,7 +861,7 @@
       cursor: pointer;
     }
 
-    /* Option 1: Trailing Reset Button */
+    /* Option 1: Trailing Reset Button with Micro-Animations */
     .sim-reset-btn {
       width: 24px;
       height: 24px;
@@ -840,7 +875,11 @@
       border-radius: 6px;
       cursor: pointer;
       padding: 0;
-      transition: all 0.15s ease;
+      transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                  color 150ms ease,
+                  background 150ms ease,
+                  border-color 150ms ease,
+                  opacity 150ms ease;
     }
 
     .sim-reset-btn.active {
@@ -853,6 +892,12 @@
       color: var(--text-accent);
       background: var(--badge-bg);
       border-color: var(--border-accent);
+      transform: rotate(-35deg) scale(1.12);
+    }
+
+    .sim-reset-btn.active:active {
+      transform: rotate(-180deg) scale(0.92);
+      transition-duration: 90ms;
     }
 
     .sim-reset-btn.disabled {
@@ -1046,7 +1091,7 @@
     }
   </style>
 </head>
-<body data-theme="obsidian-electric">
+<body data-theme="emerald-light">
 
   <!-- Showcase Header with Live Theme Tabs -->
   <header class="showcase-header">
@@ -1063,7 +1108,11 @@
 
       <!-- Theme Switcher Tabs -->
       <nav class="theme-selector-tabs" aria-label="Theme Switcher">
-        <button class="theme-tab-btn active" onclick="switchTheme('obsidian-electric')">
+        <button class="theme-tab-btn active" onclick="switchTheme('emerald-light')">
+          <span class="theme-tab-dot" style="background: #10b981;"></span>
+          ✨ الأخضر الزمردي لايت (Emerald Light - المطبق)
+        </button>
+        <button class="theme-tab-btn" onclick="switchTheme('obsidian-electric')">
           <span class="theme-tab-dot" style="background: #38bdf8;"></span>
           1. Obsidian Electric (أوبسيديان كحلي)
         </button>
@@ -1090,8 +1139,8 @@
   <!-- Theme Info & Swatches Banner -->
   <section class="theme-info-banner">
     <div class="theme-info-text">
-      <strong id="theme-banner-name">1. استوديو أوبسيديان الكهربائي (Obsidian Electric Studio)</strong>
-      <span id="theme-banner-desc">مستوحى من Linear و Webflow و Figma. ألوان كحلية داكنة راقية، تباين فائق مع خطوط مضيئة وتدرج كهربائي أزرق-سماوي.</span>
+      <strong id="theme-banner-name">✨ الأخضر الزمردي لايت (Emerald Light - المطبق بالمشروع)</strong>
+      <span id="theme-banner-desc">اللايت مود الكامل المطبق الآن بالمشروع مع درجات اللون الأخضر الزمردي (Emerald/Mint)، ظلال ناعمة متعددة الطبقات وانميشن احترافي عند التفاعل.</span>
     </div>
 
     <!-- Palette Swatches -->
@@ -1386,8 +1435,22 @@
 
     <div class="theme-cards-grid">
 
+      <!-- Card Emerald Light (Current Theme) -->
+      <div class="theme-mini-card selected" id="card-emerald-light" onclick="switchTheme('emerald-light')">
+        <span class="mini-card-tag" style="background:#ecfdf5; color:#059669;">المطبق حالياً بالمشروع</span>
+        <h3 class="mini-card-title">✨ أخضر زمردي لايت (Emerald Light)</h3>
+        <p class="mini-card-desc">لايت مود متكامل وعصري باللون الأخضر المفضل لديك. واجهة نقية، ظلال خفيفة ناعمة، وانميشن حركي احترافي للأزرار والمدخلات.</p>
+        <div class="mini-card-preview-strip">
+          <div style="flex:2; background: #f8fafc; border:1px solid #cbd5e1;"></div>
+          <div style="flex:2; background: #ffffff; border:1px solid #cbd5e1;"></div>
+          <div style="flex:1; background: #10b981;"></div>
+          <div style="flex:1; background: #059669;"></div>
+        </div>
+        <button class="mini-card-btn">تفعيل ومعاينة</button>
+      </div>
+
       <!-- Card 1 -->
-      <div class="theme-mini-card selected" id="card-obsidian-electric" onclick="switchTheme('obsidian-electric')">
+      <div class="theme-mini-card" id="card-obsidian-electric" onclick="switchTheme('obsidian-electric')">
         <span class="mini-card-tag">الموصى به للأدوات البرمجية</span>
         <h3 class="mini-card-title">1. أوبسيديان كحلي (Obsidian Electric)</h3>
         <p class="mini-card-desc">تدرجات كحلية داكنة مع أزرق سيان كهربائي. راحة تامة للعين وتباين عالي مع لمسات تقنية احترافية (Linear &amp; Figma Style).</p>
@@ -1474,6 +1537,10 @@
 
   <script>
     const themesData = {
+      'emerald-light': {
+        name: '✨ الأخضر الزمردي لايت (Emerald Light - المطبق بالمشروع)',
+        desc: 'اللايت مود الكامل المطبق الآن بالمشروع مع درجات اللون الأخضر الزمردي (Emerald/Mint)، ظلال ناعمة متعددة الطبقات وانميشن احترافي عند التفاعل.'
+      },
       'obsidian-electric': {
         name: '1. استوديو أوبسيديان الكهربائي (Obsidian Electric Studio)',
         desc: 'مستوحى من Linear و Webflow و Figma. ألوان كحلية داكنة راقية، تباين فائق مع خطوط مضيئة وتدرج كهربائي أزرق-سماوي.'
@@ -1496,7 +1563,7 @@
       }
     };
 
-    let currentThemeKey = 'obsidian-electric';
+    let currentThemeKey = 'emerald-light';
 
     function switchTheme(themeKey) {
       currentThemeKey = themeKey;

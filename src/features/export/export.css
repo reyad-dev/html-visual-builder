@@ -5,7 +5,7 @@
 .export-modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(9, 13, 22, 0.78);
+  background-color: rgba(15, 23, 42, 0.45);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -39,8 +39,8 @@
    A4 Sheet Simulator Styles
    ========================================================================== */
 .a4-simulator-wrapper {
-  background: #090d16;
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md, 8px);
   padding: 1rem;
   display: flex;
@@ -54,10 +54,11 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.75rem;
-  background: var(--bg-surface, #181d28);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
   padding: 0.5rem 0.85rem;
   border-radius: var(--radius-sm, 6px);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 }
 
 .a4-control-group {
@@ -69,13 +70,13 @@
 .a4-control-label {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-secondary, #94a3b8);
+  color: var(--text-secondary);
 }
 
 .a4-toggle-btn {
-  background: var(--bg-primary, #0a0c10);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12));
-  color: var(--text-secondary, #94a3b8);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   font-weight: 500;
   padding: 4px 10px;
@@ -85,20 +86,20 @@
 }
 
 .a4-toggle-btn:hover {
-  color: var(--text-primary, #f8fafc);
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
 }
 
 .a4-toggle-btn.active {
-  background: var(--accent-primary, #3b82f6);
+  background: var(--accent-primary);
   color: #ffffff;
-  border-color: var(--accent-primary, #3b82f6);
+  border-color: var(--accent-primary);
 }
 
 .a4-select {
-  background: var(--bg-primary, #0a0c10);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.12));
-  color: var(--text-primary, #f8fafc);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
   font-size: 0.8rem;
   padding: 4px 8px;
   border-radius: var(--radius-sm, 6px);
@@ -107,7 +108,7 @@
 
 .a4-select:focus {
   outline: none;
-  border-color: var(--border-focus, #3b82f6);
+  border-color: var(--border-focus);
 }
 
 .a4-anti-cut-badge {
@@ -301,12 +302,13 @@
 }
 
 .export-config-input {
-  background: var(--bg-primary);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-sm);
   font-size: 0.875rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
@@ -323,13 +325,12 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 
-
 .export-tab-btn {
   padding: 0.625rem 1rem;
   background: transparent;
   border: none;
   border-bottom: 2px solid transparent;
-  color: var(--text-secondary, #94a3b8);
+  color: var(--text-secondary);
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
@@ -337,12 +338,12 @@
 }
 
 .export-tab-btn:hover {
-  color: var(--text-primary, #f8fafc);
+  color: var(--text-primary);
 }
 
 .export-tab-btn.active {
-  color: var(--text-accent, #60a5fa);
-  border-bottom-color: var(--accent-primary, #3b82f6);
+  color: var(--text-accent);
+  border-bottom-color: var(--accent-primary);
 }
 
 /* Code Preview Container */

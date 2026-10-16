@@ -5,7 +5,7 @@
 .templates-modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(9, 13, 22, 0.78);
+  background-color: rgba(15, 23, 42, 0.45);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -121,19 +121,19 @@
 }
 
 .templates-cat-btn:hover {
-  color: var(--text-primary, #f8fafc);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  background: var(--bg-surface-hover);
 }
 
 .templates-cat-btn.active {
-  background: rgba(14, 165, 233, 0.15);
-  color: var(--text-accent, #38bdf8);
-  border-color: rgba(14, 165, 233, 0.35);
+  background: var(--accent-subtle);
+  color: var(--text-accent);
+  border-color: rgba(16, 185, 129, 0.35);
 }
 
 .templates-count-badge {
   font-size: 0.75rem;
-  color: var(--text-muted, #64748b);
+  color: var(--text-muted);
   font-weight: 500;
 }
 
@@ -151,19 +151,20 @@
 }
 
 .template-card {
-  background: var(--bg-surface, #181d28);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md, 8px);
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   transition: all var(--transition-normal, 250ms);
 }
 
 .template-card:hover {
-  border-color: rgba(14, 165, 233, 0.35);
-  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.4);
+  border-color: var(--border-focus);
+  box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.08);
   transform: translateY(-2px);
 }
 
@@ -179,9 +180,9 @@
 }
 
 .template-badge {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
-  color: var(--text-secondary, #94a3b8);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;

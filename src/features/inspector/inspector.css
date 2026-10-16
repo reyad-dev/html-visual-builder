@@ -39,9 +39,10 @@
   font-size: 0.75rem;
   padding: 2px 8px;
   border-radius: var(--radius-sm);
-  background: rgba(59, 130, 246, 0.15);
+  background: var(--accent-subtle);
   color: var(--text-accent);
-  border: 1px solid var(--border-accent);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-weight: 500;
 }
 
 /* Breadcrumbs bar (08_UI_UX_SPEC.md §10) */
@@ -59,14 +60,16 @@
 
 .breadcrumb-crumb {
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 1px 5px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 1px 6px;
   border-radius: 3px;
 }
 
 .breadcrumb-crumb.active {
   color: var(--text-accent);
-  background: rgba(59, 130, 246, 0.12);
+  background: var(--accent-subtle);
+  border-color: rgba(16, 185, 129, 0.25);
   font-weight: 500;
 }
 
@@ -77,7 +80,8 @@
 /* Tab Toggle */
 .inspector-tabs {
   display: flex;
-  background: var(--bg-secondary);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 2px;
   gap: 2px;
@@ -105,7 +109,7 @@
 .inspector-tab-btn.active {
   background: var(--bg-surface-elevated);
   color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
 }
 
 /* Scroll Container */
@@ -128,12 +132,13 @@
   margin-bottom: 0.35rem;
   flex-shrink: 0;
   min-height: 44px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: border-color var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .inspector-sector:hover {
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: var(--border-medium);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
 }
 
 .inspector-sector-header {
@@ -164,7 +169,7 @@
 }
 
 .inspector-sector-header:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-surface-hover);
 }
 
 .inspector-sector-chevron {
@@ -208,12 +213,26 @@
 }
 
 /* Option 1: Modified Property Dot Indicator (Figma/Webflow style) */
+@keyframes dotPop {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .inspector-modified-dot {
   width: 5px;
   height: 5px;
   border-radius: var(--radius-full);
   background: var(--text-accent);
-  box-shadow: 0 0 6px var(--text-accent);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.45);
   display: inline-block;
   flex-shrink: 0;
   opacity: 0;
@@ -223,7 +242,7 @@
 
 .inspector-modified-dot.active {
   opacity: 1;
-  transform: scale(1);
+  animation: dotPop 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .inspector-control-input-wrapper {
@@ -247,7 +266,11 @@
   color: var(--text-muted);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 150ms ease,
+              background 150ms ease,
+              border-color 150ms ease,
+              opacity 150ms ease;
   flex-shrink: 0;
   padding: 0;
 }
@@ -259,13 +282,15 @@
 
 .inspector-reset-btn.active:hover {
   color: var(--text-accent);
-  background: rgba(56, 189, 248, 0.12);
-  border-color: rgba(56, 189, 248, 0.25);
+  background: var(--accent-subtle);
+  border-color: rgba(16, 185, 129, 0.28);
   opacity: 1;
+  transform: rotate(-35deg) scale(1.12);
 }
 
 .inspector-reset-btn.active:active {
-  transform: scale(0.9);
+  transform: rotate(-180deg) scale(0.92);
+  transition-duration: 90ms;
 }
 
 .inspector-reset-btn.disabled {
@@ -277,14 +302,15 @@
 .inspector-input {
   width: 100%;
   height: 28px;
-  background: rgba(9, 13, 22, 0.7);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-size: 0.78rem;
   padding: 0 8px;
   outline: none;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
 .inspector-input:hover {
@@ -294,12 +320,13 @@
 .inspector-input:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 2px var(--border-focus-ring);
+  background: #ffffff;
 }
 
 .inspector-select {
   width: 100%;
   height: 28px;
-  background: rgba(9, 13, 22, 0.7);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
@@ -307,7 +334,8 @@
   padding: 0 8px;
   outline: none;
   cursor: pointer;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
 .inspector-select:hover {
@@ -317,12 +345,13 @@
 .inspector-select:focus {
   border-color: var(--border-focus);
   box-shadow: 0 0 0 2px var(--border-focus-ring);
+  background: #ffffff;
 }
 
 /* Unit Selector */
 .inspector-unit-select {
   height: 28px;
-  background: var(--bg-surface);
+  background: #ffffff;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-muted);
@@ -330,7 +359,8 @@
   padding: 0 4px;
   outline: none;
   cursor: pointer;
-  transition: border-color var(--transition-fast);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
 }
 
 .inspector-unit-select:hover {
@@ -466,7 +496,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--bg-primary);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 4px 8px;
@@ -536,7 +566,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  background: var(--bg-primary);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 2px 6px;

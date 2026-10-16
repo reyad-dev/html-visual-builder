@@ -1,46 +1,47 @@
 :root {
-  /* Surfaces & Hierarchy */
-  --bg-primary: #090d16;
-  --bg-secondary: #0f1623;
-  --bg-surface: #151e30;
-  --bg-surface-elevated: #1c273d;
-  --bg-surface-hover: #24324d;
-  --bg-glass: rgba(21, 30, 48, 0.85);
+  /* Surfaces & Hierarchy (Clean Emerald Light Mode) */
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-surface: #f1f5f9;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-hover: #e2e8f0;
+  --bg-glass: rgba(255, 255, 255, 0.9);
 
   /* Hairline Borders & High-Contrast Focus */
-  --border-subtle: rgba(255, 255, 255, 0.09);
-  --border-medium: rgba(255, 255, 255, 0.16);
-  --border-focus: #38bdf8;
-  --border-focus-ring: rgba(56, 189, 248, 0.28);
-  --border-accent: rgba(56, 189, 248, 0.35);
+  --border-subtle: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-focus: #10b981;
+  --border-focus-ring: rgba(16, 185, 129, 0.24);
+  --border-accent: rgba(16, 185, 129, 0.35);
   --border-color: var(--border-subtle);
 
-  /* Accessible Typography (WCAG AAA contrast) */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-accent: #38bdf8;
+  /* Accessible Typography (WCAG AAA & AA contrast against light surfaces) */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-accent: #059669;
 
-  /* Premium Electric Tech Accents */
-  --accent-primary: #2563eb;
-  --accent-primary-hover: #1d4ed8;
-  --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #2563eb 50%, #4f46e5 100%);
-  --accent-glow: 0 0 24px rgba(56, 189, 248, 0.25);
+  /* Emerald Tech Accents (Theme 2 Accent in Light Mode) */
+  --accent-primary: #10b981;
+  --accent-primary-hover: #059669;
+  --accent-gradient: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+  --accent-glow: 0 4px 16px rgba(16, 185, 129, 0.28);
+  --accent-subtle: #ecfdf5;
 
   /* Semantic Feedback Tokens */
   --status-success: #10b981;
   --status-warning: #f59e0b;
-  --status-error: #f43f5e;
+  --status-error: #ef4444;
 
   /* Typography Scale */
   --font-sans: 'Alexandria', 'Cairo', 'Tajawal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Refined Elevation & Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.55), 0 4px 8px -4px rgba(0, 0, 0, 0.4);
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  /* Refined Elevation & Shadows for Light Mode */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 35px -5px rgba(15, 23, 42, 0.12), 0 6px 12px -4px rgba(15, 23, 42, 0.06);
+  --shadow-glass: 0 12px 32px 0 rgba(15, 23, 42, 0.1);
 
   /* Radii & Micro-interactions */
   --radius-sm: 6px;
@@ -48,8 +49,8 @@
   --radius-lg: 12px;
   --radius-full: 9999px;
 
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *,
@@ -73,25 +74,26 @@ body,
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar (Light Mode) */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.4);
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #cbd5e1;
   border-radius: var(--radius-full);
-  border: 2px solid transparent;
+  border: 2px solid #f1f5f9;
   background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
-  border: 2px solid transparent;
+  background: #94a3b8;
+  border: 2px solid #f1f5f9;
   background-clip: content-box;
 }
+
