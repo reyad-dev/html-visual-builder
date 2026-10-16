@@ -35,15 +35,16 @@ export function loadSanitizedDocumentIntoAdapter(
 
   const hasArabic =
     doc.lang === 'ar' ||
-    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.bodyHtml || '') ||
+    /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(
+      doc.bodyHtml || ''
+    ) ||
     /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.css || '');
 
-  const targetDir: 'rtl' | 'ltr' = doc.dir === 'ltr' ? 'ltr' : doc.dir === 'rtl' || hasArabic ? 'rtl' : 'ltr';
+  const targetDir: 'rtl' | 'ltr' =
+    doc.dir === 'ltr' ? 'ltr' : doc.dir === 'rtl' || hasArabic ? 'rtl' : 'ltr';
   const isRtl = targetDir === 'rtl';
 
-  const rtlCanvasCss = isRtl
-    ? `\nhtml[dir="rtl"], body[dir="rtl"] {\n  direction: rtl;\n}\n`
-    : '';
+  const rtlCanvasCss = isRtl ? `\nhtml[dir="rtl"], body[dir="rtl"] {\n  direction: rtl;\n}\n` : '';
 
   ed.setComponents(doc.bodyHtml || '');
 
@@ -51,6 +52,21 @@ export function loadSanitizedDocumentIntoAdapter(
   ed.addComponents(`<style>${DEFAULT_CANVAS_CSS}${rtlCanvasCss}</style>`);
   if (doc.css && doc.css.trim()) {
     ed.addComponents(`<style>${doc.css}</style>`);
+    try {
+      const canvas = (ed as unknown as { Canvas?: { getDocument?: () => Document } }).Canvas;
+      const canvasDoc = canvas?.getDocument?.();
+      if (canvasDoc?.head) {
+        let styleEl = canvasDoc.getElementById('imported-document-css') as HTMLStyleElement | null;
+        if (!styleEl) {
+          styleEl = canvasDoc.createElement('style');
+          styleEl.id = 'imported-document-css';
+          canvasDoc.head.insertBefore(styleEl, canvasDoc.head.firstChild);
+        }
+        styleEl.textContent = `${DEFAULT_CANVAS_CSS}${rtlCanvasCss}\n${doc.css}`;
+      }
+    } catch {
+      // safe fallback
+    }
   }
 
   const wrapper = ed.getWrapper();
@@ -59,7 +75,7 @@ export function loadSanitizedDocumentIntoAdapter(
       removable: false,
       copyable: false,
       draggable: false,
-      badgable: false,
+      badgable: false
     });
     wrapper.addAttributes?.({ dir: targetDir });
     wrapper.addStyle?.({ direction: targetDir });

@@ -5,13 +5,14 @@ import {
   type EditorEventType,
   type ExportSnapshot,
   type IEditorAdapter,
-  type SelectedComponentInfo,
+  type SelectedComponentInfo
 } from './types';
 import { VIEWPORT_DEVICES } from './devices';
 import { DEFAULT_BLOCKS } from './blocks';
 import { DEFAULT_BLANK_HTML, DEFAULT_CANVAS_CSS } from './editorConfig';
 import type { SanitizedDocument } from '../domain/document/types';
 import { detectDocumentFonts, injectFontStylesheet } from '../domain/document/fontDetector';
+import { createCustomCssParser } from '../domain/document/cssParser';
 
 const EXPANDED_GOOGLE_FONTS_URL =
   'https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Almarai:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700&family=Changa:wght@400;600;700&family=El+Messiri:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;600;700&family=Readex+Pro:wght@400;600;700&family=Rubik:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap';
@@ -21,10 +22,11 @@ export class EditorAdapter implements IEditorAdapter {
   private isInit = false;
   private currentDevice: EditorDevice = 'desktop';
   private currentDirection: 'rtl' | 'ltr' = 'rtl';
+  private importedDocCss = '';
   private eventListeners: Map<EditorEventType, Set<() => void>> = new Map([
     ['selection:change', new Set()],
     ['history:change', new Set()],
-    ['update', new Set()],
+    ['update', new Set()]
   ]);
 
   get isInitialized(): boolean {
@@ -48,25 +50,28 @@ export class EditorAdapter implements IEditorAdapter {
       panels: { defaults: [] },
       storageManager: false,
       deviceManager: {
-        devices: VIEWPORT_DEVICES,
+        devices: VIEWPORT_DEVICES
       },
       blockManager: options.blocksContainer
         ? {
             appendTo: options.blocksContainer,
-            blocks: DEFAULT_BLOCKS,
+            blocks: DEFAULT_BLOCKS
           }
         : {
-            blocks: DEFAULT_BLOCKS,
+            blocks: DEFAULT_BLOCKS
           },
       canvas: {
-        styles: [EXPANDED_GOOGLE_FONTS_URL],
+        styles: [EXPANDED_GOOGLE_FONTS_URL]
       },
       headless: options.headless ?? isJsdom,
+      parser: {
+        parserCss: createCustomCssParser()
+      }
     };
 
     if (options.layersContainer) {
       config.layerManager = {
-        appendTo: options.layersContainer,
+        appendTo: options.layersContainer
       };
     }
 
@@ -83,7 +88,7 @@ export class EditorAdapter implements IEditorAdapter {
         removable: false,
         copyable: false,
         draggable: false,
-        badgable: false,
+        badgable: false
       });
     }
 
@@ -212,13 +217,23 @@ export class EditorAdapter implements IEditorAdapter {
   }
 
   getCss(): string {
-    return this.editor?.getCss() || '';
+    const editorCss = this.editor?.getCss() || '';
+    if (this.importedDocCss && this.importedDocCss.trim()) {
+      if (!editorCss || !editorCss.trim()) {
+        return this.importedDocCss;
+      }
+      if (editorCss.includes(this.importedDocCss.trim().slice(0, 40))) {
+        return editorCss;
+      }
+      return `${this.importedDocCss}\n\n${editorCss}`;
+    }
+    return editorCss;
   }
 
   getExportSnapshot(): ExportSnapshot {
     return {
       bodyHtml: this.getHtml(),
-      css: this.getCss(),
+      css: this.getCss()
     };
   }
 
@@ -238,6 +253,18 @@ export class EditorAdapter implements IEditorAdapter {
     if (!this.editor) {
       return;
     }
+    this.importedDocCss = '';
+    try {
+      const canvas = (
+        this.editor as unknown as {
+          Canvas?: { getDocument?: () => Document };
+        }
+      ).Canvas;
+      const canvasDoc = canvas?.getDocument?.();
+      canvasDoc?.getElementById('imported-document-css')?.remove();
+    } catch {
+      // safe fallback
+    }
     this.editor.setComponents(`<style>${DEFAULT_CANVAS_CSS}</style>${DEFAULT_BLANK_HTML}`);
     this.editor.select(undefined);
     try {
@@ -253,6 +280,29 @@ export class EditorAdapter implements IEditorAdapter {
   loadTemplate(html: string, css?: string): void {
     if (!this.editor) {
       return;
+    }
+    this.importedDocCss = css || '';
+    try {
+      const canvas = (
+        this.editor as unknown as {
+          Canvas?: { getDocument?: () => Document };
+        }
+      ).Canvas;
+      const canvasDoc = canvas?.getDocument?.();
+      const existing = canvasDoc?.getElementById('imported-document-css');
+      if (css && css.trim() && canvasDoc?.head) {
+        let styleEl = existing as HTMLStyleElement | null;
+        if (!styleEl) {
+          styleEl = canvasDoc.createElement('style');
+          styleEl.id = 'imported-document-css';
+          canvasDoc.head.insertBefore(styleEl, canvasDoc.head.firstChild);
+        }
+        styleEl.textContent = `${DEFAULT_CANVAS_CSS}\n${css}`;
+      } else {
+        existing?.remove();
+      }
+    } catch {
+      // safe fallback
     }
     const fullHtml = css
       ? `<style>${DEFAULT_CANVAS_CSS}\n${css}</style>${html}`
@@ -273,15 +323,19 @@ export class EditorAdapter implements IEditorAdapter {
     if (!this.editor) {
       return;
     }
+    this.importedDocCss = doc.css || '';
     this.clearSelection();
 
     const hasArabic =
       doc.lang === 'ar' ||
-      /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.bodyHtml || '') ||
+      /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(
+        doc.bodyHtml || ''
+      ) ||
       /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(doc.css || '');
 
     // Priority for Arabic RTL: if explicitly LTR, respect LTR; otherwise if Arabic or explicit RTL, set RTL
-    const targetDir: 'rtl' | 'ltr' = doc.dir === 'ltr' ? 'ltr' : doc.dir === 'rtl' || hasArabic ? 'rtl' : 'ltr';
+    const targetDir: 'rtl' | 'ltr' =
+      doc.dir === 'ltr' ? 'ltr' : doc.dir === 'rtl' || hasArabic ? 'rtl' : 'ltr';
     this.currentDirection = targetDir;
     const isRtl = targetDir === 'rtl';
 
@@ -304,7 +358,7 @@ export class EditorAdapter implements IEditorAdapter {
         removable: false,
         copyable: false,
         draggable: false,
-        badgable: false,
+        badgable: false
       });
       wrapper.addAttributes({ dir: targetDir });
       wrapper.addStyle({ direction: targetDir });
@@ -348,6 +402,22 @@ export class EditorAdapter implements IEditorAdapter {
           if (font.googleFontsUrl) {
             injectFontStylesheet(font.googleFontsUrl, canvasDoc);
           }
+        }
+
+        // Auto-inject imported document CSS directly into canvas iframe head
+        // to preserve CSS variables (:root), shorthands with var(), and complex selectors
+        if (doc.css && doc.css.trim()) {
+          let styleEl = canvasDoc.getElementById(
+            'imported-document-css'
+          ) as HTMLStyleElement | null;
+          if (!styleEl) {
+            styleEl = canvasDoc.createElement('style');
+            styleEl.id = 'imported-document-css';
+            canvasDoc.head.insertBefore(styleEl, canvasDoc.head.firstChild);
+          }
+          styleEl.textContent = `${DEFAULT_CANVAS_CSS}${rtlCanvasCss}\n${doc.css}`;
+        } else {
+          canvasDoc.getElementById('imported-document-css')?.remove();
         }
       }
     } catch {
@@ -486,7 +556,7 @@ export class EditorAdapter implements IEditorAdapter {
       name: String(name),
       classes,
       isRemovable: selected.get('removable') !== false,
-      isCopyable: selected.get('copyable') !== false,
+      isCopyable: selected.get('copyable') !== false
     };
   }
 

@@ -36,7 +36,7 @@ export const KNOWN_ARABIC_GOOGLE_FONTS = new Set([
   'katibeh',
   'lemonada',
   'aref ruqaa',
-  'kufam',
+  'kufam'
 ]);
 
 export const GENERIC_CSS_FONT_FALLBACKS = new Set([
@@ -60,7 +60,7 @@ export const GENERIC_CSS_FONT_FALLBACKS = new Set([
   'inherit',
   'initial',
   'unset',
-  'revert',
+  'revert'
 ]);
 
 /**
@@ -81,7 +81,12 @@ export function parseFontFamilyNames(fontFamilyStr: string): string[] {
 
   return fontFamilyStr
     .split(',')
-    .map((name) => name.trim().replace(/^['"]|['"]$/g, '').trim())
+    .map((name) =>
+      name
+        .trim()
+        .replace(/^['"]|['"]$/g, '')
+        .trim()
+    )
     .filter((name) => {
       if (!name) return false;
       const lower = name.toLowerCase();
@@ -134,7 +139,7 @@ export function detectDocumentFonts(
       isAvailableOnGoogleFonts,
       isLoaded: false,
       googleFontsUrl,
-      source,
+      source
     });
   };
 
@@ -164,7 +169,9 @@ export function detectDocumentFonts(
   }
 
   // 2. Check @import in CSS
-  const importMatches = (css + '\n' + rawHtml).matchAll(/@import\s+(?:url\(['"]?([^'"\)]+)['"]?\)|['"]([^'"]+)['"])/gi);
+  const importMatches = (css + '\n' + rawHtml).matchAll(
+    /@import\s+(?:url\(['"]?([^'"]+)['"]?\)|['"]([^'"]+)['"])/gi
+  );
   for (const match of importMatches) {
     const importUrl = match[1] || match[2] || '';
     if (importUrl.includes('fonts.googleapis.com/css')) {
@@ -179,7 +186,9 @@ export function detectDocumentFonts(
   }
 
   // 3. Check @font-face rules
-  const fontFaceMatches = (css + '\n' + rawHtml).matchAll(/@font-face\s*\{[^}]*font-family:\s*['"]?([^'";}]+)['"]?/gi);
+  const fontFaceMatches = (css + '\n' + rawHtml).matchAll(
+    /@font-face\s*\{[^}]*font-family:\s*['"]?([^'";}]+)['"]?/gi
+  );
   for (const match of fontFaceMatches) {
     if (match[1]) {
       registerFont(match[1].trim(), 'font-face');
