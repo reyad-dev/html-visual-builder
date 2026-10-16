@@ -5,8 +5,9 @@
 .export-modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(10, 12, 16, 0.75);
+  background-color: rgba(9, 13, 22, 0.78);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,23 +16,24 @@
 }
 
 .export-modal {
-  background: var(--bg-secondary, #12161f);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
-  border-radius: var(--radius-lg, 12px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
   width: 100%;
   max-width: 960px;
   max-height: 92vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   animation: exportModalEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .export-tab-highlight {
-  color: var(--text-accent, #60a5fa) !important;
+  color: var(--text-accent) !important;
   font-weight: 600 !important;
 }
+
 
 /* ==========================================================================
    A4 Sheet Simulator Styles
@@ -240,13 +242,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
 }
 
 .export-modal-title {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-primary, #f8fafc);
+  color: var(--text-primary);
   margin: 0;
   display: flex;
   align-items: center;
@@ -256,17 +259,19 @@
 .export-modal-close-btn {
   background: transparent;
   border: none;
-  color: var(--text-secondary, #94a3b8);
-  font-size: 1.25rem;
+  color: var(--text-muted);
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: var(--radius-sm, 6px);
-  transition: all var(--transition-fast, 150ms);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
 }
 
 .export-modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-primary, #f8fafc);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
 }
 
 .export-modal-body {
@@ -292,30 +297,32 @@
 .export-config-label {
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-secondary, #94a3b8);
+  color: var(--text-secondary);
 }
 
 .export-config-input {
-  background: var(--bg-surface, #181d28);
-  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
-  color: var(--text-primary, #f8fafc);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
   padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-sm, 6px);
+  border-radius: var(--radius-sm);
   font-size: 0.875rem;
-  transition: border-color var(--transition-fast, 150ms);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .export-config-input:focus {
   outline: none;
-  border-color: var(--border-focus, #3b82f6);
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px var(--border-focus-ring);
 }
 
 /* Tabs */
 .export-tabs {
   display: flex;
   gap: 0.5rem;
-  border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-bottom: 1px solid var(--border-subtle);
 }
+
 
 .export-tab-btn {
   padding: 0.625rem 1rem;

@@ -263,7 +263,21 @@ export function ImportModal(): ReactElement | null {
             aria-label="Close dialog"
             data-testid="btn-close-import"
           >
-            ✕
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
           </button>
         </div>
 
@@ -343,7 +357,25 @@ export function ImportModal(): ReactElement | null {
           {stagedDoc && stagedDoc.warnings.length > 0 && (
             <div className="import-banner warnings" data-testid="import-warnings-banner">
               <div className="warnings-header">
-                <span>⚠️ Security & Compatibility Notes ({stagedDoc.warnings.length})</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                  </svg>
+                  Security &amp; Compatibility Notes ({stagedDoc.warnings.length})
+                </span>
               </div>
               <ul className="warnings-list">
                 {stagedDoc.warnings.map((w, index) => (
@@ -360,7 +392,25 @@ export function ImportModal(): ReactElement | null {
           <div style={{ display: activeTab === 'upload' ? 'block' : 'none' }}>
             <div className="file-dropzone">
               <label className="dropzone-label" htmlFor="file-upload-input">
-                <span className="dropzone-icon">📄</span>
+                <span className="dropzone-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="12" y1="18" x2="12" y2="12" />
+                    <polyline points="9 15 12 12 15 15" />
+                  </svg>
+                </span>
                 <span>Click to select an HTML file (.html, .htm) up to 5 MB</span>
               </label>
               <input
@@ -477,7 +527,25 @@ export function ImportModal(): ReactElement | null {
                             className="font-upload-label"
                             title="تحميل ملف الخط محلياً (.woff2, .woff, .ttf, .otf)"
                           >
-                            <span>📁 تحميل الخط محلياً</span>
+                            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                aria-hidden="true"
+                              >
+                                <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+                                <line x1="12" y1="10" x2="12" y2="16" />
+                                <line x1="9" y1="13" x2="15" y2="13" />
+                              </svg>
+                              تحميل الخط محلياً
+                            </span>
                             <input
                               type="file"
                               accept=".woff2,.woff,.ttf,.otf"

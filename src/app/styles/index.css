@@ -1,36 +1,48 @@
 :root {
-  --bg-primary: #0a0c10;
-  --bg-secondary: #12161f;
-  --bg-surface: #181d28;
-  --bg-surface-elevated: #202634;
-  --bg-glass: rgba(24, 29, 40, 0.75);
+  /* Surfaces & Hierarchy */
+  --bg-primary: #090d16;
+  --bg-secondary: #0f1623;
+  --bg-surface: #151e30;
+  --bg-surface-elevated: #1c273d;
+  --bg-surface-hover: #24324d;
+  --bg-glass: rgba(21, 30, 48, 0.85);
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-focus: #0ea5e9;
-  --border-accent: rgba(14, 165, 233, 0.4);
+  /* Hairline Borders & High-Contrast Focus */
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-focus: #38bdf8;
+  --border-focus-ring: rgba(56, 189, 248, 0.28);
+  --border-accent: rgba(56, 189, 248, 0.35);
+  --border-color: var(--border-subtle);
 
+  /* Accessible Typography (WCAG AAA contrast) */
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
   --text-accent: #38bdf8;
 
-  --accent-primary: #0284c7;
-  --accent-primary-hover: #0369a1;
-  --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
-  --accent-glow: 0 0 20px rgba(14, 165, 233, 0.35);
+  /* Premium Electric Tech Accents */
+  --accent-primary: #2563eb;
+  --accent-primary-hover: #1d4ed8;
+  --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #2563eb 50%, #4f46e5 100%);
+  --accent-glow: 0 0 24px rgba(56, 189, 248, 0.25);
 
+  /* Semantic Feedback Tokens */
   --status-success: #10b981;
   --status-warning: #f59e0b;
-  --status-error: #ef4444;
+  --status-error: #f43f5e;
 
+  /* Typography Scale */
   --font-sans: 'Alexandria', 'Cairo', 'Tajawal', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
-  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  /* Refined Elevation & Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.55), 0 4px 8px -4px rgba(0, 0, 0, 0.4);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
 
+  /* Radii & Micro-interactions */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;

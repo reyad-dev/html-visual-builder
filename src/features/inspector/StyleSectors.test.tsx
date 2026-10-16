@@ -167,4 +167,37 @@ describe('StyleSectors Component Reactivity & Controls', () => {
     fireEvent.change(colorInput, { target: { value: 'rgb(255, 0, 0)' } });
     expect(colorPicker.value).toBe('#ff0000');
   });
+
+  it('activates modified indicator and enables reset button when property is customized, and resets to default on click', () => {
+    render(<StyleSectors adapter={mockAdapter} selectedComponentId="test-1" />);
+
+    // Open typography sector
+    fireEvent.click(screen.getByTestId('sector-header-typography'));
+
+    const fontSelect = screen.getByTestId('style-select-font-family') as HTMLSelectElement;
+    const fontResetBtn = screen.getByTestId('btn-reset-font-family') as HTMLButtonElement;
+
+    // Initially at default: reset button is disabled and has disabled class
+    expect(fontResetBtn).toBeDisabled();
+    expect(fontResetBtn.className).toContain('disabled');
+
+    // Customize the font family
+    fireEvent.change(fontSelect, { target: { value: "'Cairo', sans-serif" } });
+    expect(fontSelect.value).toBe("'Cairo', sans-serif");
+
+    // Reset button should now be enabled and active
+    expect(fontResetBtn).not.toBeDisabled();
+    expect(fontResetBtn.className).toContain('active');
+
+    // Click the reset button
+    fireEvent.click(fontResetBtn);
+
+    // Font select should revert to default ('')
+    expect(fontSelect.value).toBe('');
+
+    // Reset button should become disabled again
+    expect(fontResetBtn).toBeDisabled();
+    expect(fontResetBtn.className).toContain('disabled');
+  });
 });
+

@@ -368,7 +368,25 @@ export function Workspace(): ReactElement {
             aria-label={`Toggle document direction. Currently ${currentDirection.toUpperCase()}`}
             data-testid="btn-direction-toggle"
           >
-            ⇄ {currentDirection === 'rtl' ? 'RTL (عربي)' : 'LTR'}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              style={{ display: 'inline', verticalAlign: '-1px', marginRight: '4px' }}
+            >
+              <path d="M8 3 4 7l4 4" />
+              <path d="M4 7h16" />
+              <path d="m16 21 4-4-4-4" />
+              <path d="M20 17H4" />
+            </svg>
+            {currentDirection === 'rtl' ? 'RTL (عربي)' : 'LTR'}
           </button>
         </nav>
 
@@ -382,7 +400,20 @@ export function Workspace(): ReactElement {
             data-testid="btn-templates"
             title="Explore Starter Examples & Templates (قوالب وأمثلة جاهزة)"
           >
-            <span aria-hidden="true">✨</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+            </svg>
             Templates
           </button>
           <button

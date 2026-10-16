@@ -2,7 +2,7 @@
 .projects-modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(10, 15, 29, 0.75);
+  background-color: rgba(9, 13, 22, 0.78);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -14,26 +14,26 @@
 }
 
 .projects-modal-dialog {
-  background: var(--bg-surface, #1e293b);
-  border: 1px solid var(--border-color, #334155);
-  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
   width: 100%;
   max-width: 680px;
   max-height: 85vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   animation: modalScaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .projects-modal-header {
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--border-color, #334155);
+  border-bottom: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-surface);
 }
 
 .projects-header-left {
@@ -46,35 +46,35 @@
   margin: 0;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-primary, #f8fafc);
+  color: var(--text-primary);
 }
 
 .projects-badge {
   background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
+  color: var(--text-accent);
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 9999px;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-accent);
 }
 
 .projects-modal-close-btn {
   background: transparent;
   border: none;
-  color: var(--text-muted, #94a3b8);
+  color: var(--text-muted);
   cursor: pointer;
-  padding: 0.375rem;
-  border-radius: 6px;
+  padding: 6px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.15s ease;
+  transition: all var(--transition-fast);
 }
 
 .projects-modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-primary, #f8fafc);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
 }
 
 .projects-modal-body {
@@ -97,26 +97,27 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  background: var(--accent-gradient);
   color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 1.15rem;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(14, 165, 233, 0.3);
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
 }
 
 .projects-new-btn:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.08);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.45);
   transform: translateY(-1px);
 }
 
 .projects-count-label {
   font-size: 0.8125rem;
-  color: var(--text-muted, #94a3b8);
+  color: var(--text-muted);
 }
 
 .projects-list {
@@ -129,25 +130,25 @@
 }
 
 .project-item {
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid var(--border-color, #334155);
-  border-radius: 8px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  transition: all 0.2s ease;
+  transition: all var(--transition-fast);
 }
 
 .project-item:hover {
-  border-color: #38bdf8;
-  background: rgba(15, 23, 42, 0.8);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-color: var(--border-focus);
+  background: var(--bg-surface-elevated);
+  box-shadow: var(--shadow-sm);
 }
 
 .project-item.active {
-  border-color: rgba(56, 189, 248, 0.6);
+  border-color: var(--border-accent);
   background: rgba(56, 189, 248, 0.05);
 }
 
@@ -167,7 +168,7 @@
 .project-item-name {
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--text-primary, #f8fafc);
+  color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -175,11 +176,11 @@
 
 .project-current-tag {
   font-size: 0.6875rem;
-  background: rgba(34, 197, 94, 0.2);
-  color: #4ade80;
-  border: 1px solid rgba(34, 197, 94, 0.4);
-  padding: 1px 6px;
-  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
   font-weight: 500;
 }
 
@@ -188,7 +189,7 @@
   align-items: center;
   gap: 0.75rem;
   font-size: 0.75rem;
-  color: var(--text-muted, #94a3b8);
+  color: var(--text-muted);
 }
 
 .project-actions {
@@ -199,45 +200,45 @@
 }
 
 .project-open-btn {
-  background: rgba(56, 189, 248, 0.15);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: #38bdf8;
-  border-radius: 6px;
-  padding: 0.375rem 0.75rem;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid var(--border-accent);
+  color: var(--text-accent);
+  border-radius: var(--radius-sm);
+  padding: 0.375rem 0.85rem;
   font-size: 0.8125rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--transition-fast);
 }
 
 .project-open-btn:hover {
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(56, 189, 248, 0.22);
   color: #ffffff;
 }
 
 .project-delete-btn {
   background: transparent;
   border: 1px solid transparent;
-  color: #f87171;
-  border-radius: 6px;
+  color: #fda4af;
+  border-radius: var(--radius-sm);
   padding: 0.375rem 0.5rem;
   font-size: 0.8125rem;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--transition-fast);
 }
 
 .project-delete-btn:hover {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(244, 63, 94, 0.15);
+  border-color: rgba(244, 63, 94, 0.3);
 }
 
 .projects-empty-state {
   text-align: center;
   padding: 3rem 1.5rem;
-  background: rgba(15, 23, 42, 0.3);
-  border: 1px dashed var(--border-color, #334155);
-  border-radius: 8px;
-  color: var(--text-muted, #94a3b8);
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
 }
 
 .projects-empty-state p {
@@ -246,9 +247,9 @@
 }
 
 .projects-confirm-overlay {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  border-radius: 8px;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.35);
+  border-radius: var(--radius-md);
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -269,39 +270,43 @@
 }
 
 .btn-confirm-danger {
-  background: #dc2626;
+  background: var(--status-error);
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius-sm);
+  padding: 0.375rem 0.85rem;
   font-size: 0.8125rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: background var(--transition-fast);
 }
 
 .btn-confirm-danger:hover {
-  background: #b91c1c;
+  filter: brightness(0.9);
 }
 
 .btn-confirm-cancel {
   background: transparent;
-  color: var(--text-muted, #94a3b8);
-  border: 1px solid var(--border-color, #334155);
-  border-radius: 6px;
-  padding: 0.375rem 0.75rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.375rem 0.85rem;
   font-size: 0.8125rem;
   cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .btn-confirm-cancel:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-primary, #f8fafc);
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
 }
 
 .projects-error-banner {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.4);
   color: #fca5a5;
   padding: 0.75rem 1rem;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-size: 0.875rem;
 }
+

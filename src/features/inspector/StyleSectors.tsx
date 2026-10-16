@@ -1,7 +1,7 @@
 import { useState, useEffect, type ReactElement, type ChangeEvent } from 'react';
 import { STYLE_SECTORS, type SectorPropertyConfig } from '../../editor/styleSectors';
 import { type IEditorAdapter } from '../../editor/types';
-import { getSelectedStyles, setSelectedStyles } from './inspectorBridge';
+import { getSelectedStyles, setSelectedStyles, removeSelectedStyles } from './inspectorBridge';
 
 export function toValidHexColor(raw?: string): string | null {
   if (!raw) return null;
@@ -171,6 +171,15 @@ export function StyleSectors({
   const handleStyleChange = (cssProp: string, value: string): void => {
     setStyles((prev) => ({ ...prev, [cssProp]: value }));
     setSelectedStyles(adapter, { [cssProp]: value });
+  };
+
+  const handleResetProperty = (cssProp: string): void => {
+    setStyles((prev) => {
+      const next = { ...prev };
+      delete next[cssProp];
+      return next;
+    });
+    removeSelectedStyles(adapter, [cssProp]);
   };
 
   const renderPropertyControl = (prop: SectorPropertyConfig): ReactElement => {
@@ -364,16 +373,52 @@ export function StyleSectors({
                 className="inspector-sector-body"
                 data-testid={`sector-body-${sector.id}`}
               >
-                {sector.properties.map((prop) => (
-                  <div key={prop.id} className="inspector-control-row">
-                    <label htmlFor={`style-${prop.id}`} className="inspector-control-label">
-                      {prop.label}
-                    </label>
-                    <div className="inspector-control-input-wrapper">
-                      {renderPropertyControl(prop)}
+                {sector.properties.map((prop) => {
+                  const currentPropValue = styles[prop.cssProp];
+                  const hasCustomValue = Boolean(
+                    currentPropValue && currentPropValue.trim() !== ''
+                  );
+                  return (
+                    <div key={prop.id} className="inspector-control-row">
+                      <label htmlFor={`style-${prop.id}`} className="inspector-control-label">
+                        <span
+                          className={`inspector-modified-dot ${hasCustomValue ? 'active' : ''}`}
+                          aria-hidden="true"
+                          title={hasCustomValue ? 'Customized property' : undefined}
+                        />
+                        {prop.label}
+                      </label>
+                      <div className="inspector-control-input-wrapper">
+                        {renderPropertyControl(prop)}
+                        <button
+                          type="button"
+                          className={`inspector-reset-btn ${hasCustomValue ? 'active' : 'disabled'}`}
+                          onClick={() => handleResetProperty(prop.cssProp)}
+                          disabled={!hasCustomValue}
+                          aria-label={`Reset ${prop.label} to default`}
+                          title={hasCustomValue ? `Reset ${prop.label} to default` : 'Default value'}
+                          data-testid={`btn-reset-${prop.id}`}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="12"
+                            height="12"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                            <path d="M3 3v5h5" />
+                          </svg>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </section>
