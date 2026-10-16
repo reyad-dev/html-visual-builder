@@ -214,8 +214,9 @@ export function Workspace(): ReactElement {
         return;
       }
 
-      // Delete: Delete or Backspace
-      if (e.key === 'Delete' || e.key === 'Backspace') {
+      // Delete selected component: Delete key (Del)
+      // Note: Backspace is strictly reserved for text typing and must never delete canvas components
+      if (e.key === 'Delete') {
         e.preventDefault();
         adapter.deleteSelected();
         return;

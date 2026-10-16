@@ -51,7 +51,7 @@ export function EditorCanvasHost({ device }: EditorCanvasHostProps): ReactElemen
                 className="canvas-mini-btn danger"
                 onClick={handleDelete}
                 disabled={!selectedComponent.isRemovable}
-                title="Delete selected element (Del / Backspace)"
+                title="Delete selected element (Del)"
                 aria-label="Delete selected element"
                 data-testid="canvas-btn-delete"
               >

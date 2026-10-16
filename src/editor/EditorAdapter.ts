@@ -93,6 +93,24 @@ export class EditorAdapter implements IEditorAdapter {
     // Synchronize initial device
     this.setDevice(this.currentDevice);
 
+    // Prevent Backspace from deleting canvas components inside GrapesJS Keymaps
+    try {
+      const keymaps = (
+        this.editor as unknown as {
+          Keymaps?: {
+            remove?: (id: string) => void;
+            add?: (id: string, keys: string, cmd: string) => void;
+          };
+        }
+      ).Keymaps;
+      if (keymaps?.remove && keymaps?.add) {
+        keymaps.remove('core:component-delete');
+        keymaps.add('core:component-delete', 'delete', 'core:component-delete');
+      }
+    } catch {
+      // safe fallback
+    }
+
     // Register GrapesJS core events
     this.editor.on('component:selected component:deselected', () => {
       this.emit('selection:change');

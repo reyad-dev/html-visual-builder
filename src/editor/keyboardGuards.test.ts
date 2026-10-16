@@ -47,6 +47,33 @@ describe('keyboardGuards - isTypingInInput', () => {
     expect(isTypingInInput(toolItem)).toBe(true);
   });
 
+  it('returns true when target is an iframe containing an active contenteditable element', () => {
+    const iframe = document.createElement('iframe');
+    document.body.appendChild(iframe);
+    const idoc = iframe.contentDocument;
+    if (idoc) {
+      const heading = idoc.createElement('h1');
+      heading.setAttribute('contenteditable', 'true');
+      heading.contentEditable = 'true';
+      idoc.body.appendChild(heading);
+      expect(isTypingInInput(iframe)).toBe(true);
+    }
+    iframe.remove();
+  });
+
+  it('returns true when an iframe in document contains an active focused input', () => {
+    const iframe = document.createElement('iframe');
+    document.body.appendChild(iframe);
+    const idoc = iframe.contentDocument;
+    if (idoc) {
+      const input = idoc.createElement('input');
+      idoc.body.appendChild(input);
+      input.focus();
+      expect(isTypingInInput(document.body)).toBe(true);
+    }
+    iframe.remove();
+  });
+
   it('returns false for regular canvas buttons, divs, and document body', () => {
     const btn = document.createElement('button');
     expect(isTypingInInput(btn)).toBe(false);
