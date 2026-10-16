@@ -1,6 +1,7 @@
 # 🚀 HTML Visual Builder — Next-Gen Drag & Drop Web Page Builder
 ### محرر صفحات الويب المرئي بالسحب والإفلات وتصدير HTML & PDF احترافي
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Try_Online-0ea5e9?style=for-the-badge&logo=googlechrome&logoColor=white)](https://reyad-dev.github.io/html-visual-builder/)
 [![Build Status](https://img.shields.io/badge/Build-Passing-10b981?style=for-the-badge&logo=github-actions)](https://github.com/reyad-dev/html-visual-builder)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.3-06b6d4?style=for-the-badge&logo=react)](https://react.dev/)
@@ -8,6 +9,9 @@
 [![Vite](https://img.shields.io/badge/Vite-6.3-9333ea?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![Tests](https://img.shields.io/badge/Vitest-133%20Passed-10b981?style=for-the-badge&logo=vitest)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+
+> 🌐 **Live Demo (جرّب المحرر أونلاين فوراً):**  
+> **[https://reyad-dev.github.io/html-visual-builder/](https://reyad-dev.github.io/html-visual-builder/)**
 
 > **HTML Visual Builder** is an enterprise-grade, high-fidelity visual web page builder designed for developers, designers, and marketers. Build modern responsive layouts with drag-and-drop ease, inspect and style CSS properties with millimeter precision, preview across multiple device viewports, and export clean, standalone HTML5 documents or vector-grade PDFs with first-class Arabic typography support.
 
